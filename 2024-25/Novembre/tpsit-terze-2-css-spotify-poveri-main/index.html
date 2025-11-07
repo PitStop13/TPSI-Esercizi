@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Esercitazione 2 - CSS</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <img src="img/logo-spotify-poveri.png" alt="Logo" class="logo">
+      <a href="#">Spotify dei poveri</a>
+      <a href="#playlist">Playlist</a>
+      <a href="#credits">Ringraziamenti</a>
+    </nav>
+  </header>
+  <hr>
+  <main>
+    <section id="intro">
+      <h1>Benvenuto su Spotify dei poveri</h1>
+      <p class="blue_text">Con i pochi soldi che avevamo abbiamo comparto del CSS</p>
+    </section>
+    <section id="playlist">
+      <h1>Sezione 1: La tua playlist</h1>
+      <table class="playlist-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome canzone</th>
+            <th>Autore</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  class="dark-row">
+            <td>1</td>
+            <td>Don't stop me now</td>
+            <td>Queen</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>We will rock you</td>
+            <td>Queen</td>
+          </tr>
+          <tr  class="dark-row">
+            <td>3</td>
+            <td>We're not gonna take it</td>
+            <td>Twisted Sisters</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Bohemian Rapsody</td>
+            <td>Queen</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <div id="credits" class="credits">
+      <h1>Ringraziamenti</h1>
+      <p>Vorrei ringraziare veramente qualcuno, ma ho nascosto i nomi nel CSS</p>
+      <ul>
+        <li>Il team di Spotify dei ricchi</li>
+        <li>I venture capital che hanno investito in noi (nessuno)</li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>

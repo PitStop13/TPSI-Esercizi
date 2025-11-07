@@ -1,0 +1,169 @@
+:root {
+  --lightBlueText: #2F6BE7;
+  --orangeText: #FA824D;
+  --whiteText: #FFFFFF;
+  --darkBack: #1E2233;
+  --lightBack: #4A5582;
+  --fontFamily: 'Courier New', Courier, monospace;
+}
+
+html, body {
+  margin: 0;
+}
+
+body {
+  padding: 30px;
+}
+
+* {
+  font-family: var(--fontFamily);
+}
+
+header > nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header > nav > img {
+  height: 45px;
+  margin-right: 30px;
+}
+
+header > nav > a {
+  text-decoration: none;
+  border: 1px solid var(--orangeText);
+  border-radius: 10px;
+  color: var(--lightBlueText);
+  padding: 10px;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+header > nav > a:hover {
+  background-color: var(--lightBlueText);
+  color: var(--orangeText);
+}
+
+header > h1 {
+  color: var(--lightBlueText);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--darkBack);
+  border-radius: 10px;
+  color: var(--whiteText);
+}
+
+main > .partite {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+main > .partite > .match {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0;
+  margin-left: 10px;
+  padding: 10px;
+  background-color: var(--lightBack);
+  border-radius: 10px;
+}
+
+main > .partite > .match > * {
+  margin: 0 5px;
+}
+
+main > .partite > .match > .team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main > .partite > .match > .team > img {
+  width: 30px;
+  height: 30px;
+}
+
+main > .partite > .match > .team > p {
+  margin: 5px 0;
+}
+
+main > .selected-match {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--lightBack);
+  border-radius: 10px;
+}
+
+main > .campo {
+  margin-bottom: 20px;
+}
+
+main > .campo > img {
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  background-color: var(--darkBack);
+  border-radius: 10px;
+  color: var(--whiteText);
+  padding: 0 10px;
+}
+
+footer > * {
+  margin: 10px 0;
+}
+
+footer > img {
+  height: 100px;
+  margin-top: 20px;
+}
+
+footer > .serie-a > a > img {
+  height: 150px;
+}
+
+footer p {
+  text-align: center;
+}
+
+footer > .serie-a {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+footer > .serie-a > p {
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  header > nav {
+    flex-direction: column;
+  }
+
+  header > nav > img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  header > nav > a {
+    margin: 0;
+    margin-top: 10px;
+  }
+}

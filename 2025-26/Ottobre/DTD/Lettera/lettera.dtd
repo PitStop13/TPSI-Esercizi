@@ -1,0 +1,17 @@
+<!ELEMENT letteraContenitore (lettera+)>  
+
+<!-- + indica che devo avere ALMENO 1 elemento-->
+<!-- ? indica che puoi averne o 1 o nessuna -->
+<!-- * indica che puoi sia averne che non (0,1,2,3...) -->
+
+<!ELEMENT lettera (mittente,data,dest,oggetto,saluto,corpo,chiusura,firma)>
+
+<!ELEMENT mittente (#PCDATA)> 
+<!ELEMENT data (#PCDATA)>
+<!ELEMENT dest (#PCDATA)>
+<!ELEMENT oggetto (#PCDATA)>
+<!ELEMENT saluto (#PCDATA)> 
+<!ELEMENT corpo (paragrafo+)>
+<!ELEMENT paragrafo (#PCDATA)>
+<!ELEMENT chiusura (#PCDATA)>
+<!ELEMENT firma (#PCDATA)>

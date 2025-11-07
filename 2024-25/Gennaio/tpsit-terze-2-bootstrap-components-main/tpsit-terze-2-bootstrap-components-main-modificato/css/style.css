@@ -1,0 +1,39 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+main > div:nth-child(1) > div > img{
+  width: 100%;
+}
+
+header > div{
+  opacity: 0;
+}
+
+header > div:hover{
+  opacity: 100;
+  cursor: pointer;
+}
+
+main > div:nth-child(1) > div:nth-child(2) > img{
+  opacity: 0;
+}
+
+main > div:nth-child(1){
+  display: flex;
+  flex-direction: column;
+}
+
+main > div:nth-child(1):hover{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+main > div:nth-child(1):hover > div:nth-child(1) > img{
+  opacity: 0;
+}
+
+main > div:nth-child(1) > div:nth-child(2) > img:hover{
+  opacity: 100;
+}

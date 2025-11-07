@@ -1,0 +1,22 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#student-area > header > nav{
+  display: flex;
+  align-items: center;
+}
+
+#student-area > header > nav > a{
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  transition: color 1s, background-color 1s;
+}
+
+#student-area > header > nav > a:hover{
+  color: white;
+  background-color: gray;
+}

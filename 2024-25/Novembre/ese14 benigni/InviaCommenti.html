@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invia Commenti</title>
+</head>
+<body>
+    <div>
+        <table border="1" align="center" width="80%">
+            <thead>
+                <tr>
+                    <th rowspan="2"><b>Roberto Benigni</b></th>
+                    <th colspan="2"><b>Altri film</b></th>
+                </tr>
+                <tr>
+                    <th><b>Titolo</b></th>
+                    <th><b>Descrizione</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1988</td>
+                    <td><b><i>Il piccolo diavolo</i></b></td>
+                    <td>Padre Maurizio viene chiamato a compiere un esorcismo per liberare una donna dall'essere che la stava possedendo.</td>
+                </tr>
+                <tr>
+                    <td>1994</td>
+                    <td><b><i>Il mostro</i></b></td>
+                    <td>Loris è un giovane disoccupato che si guadagna da vivere con lavori saltuari. Una serie di equivoci porta la polizia a sospettare che Loris sia il maniaco sessuale e serial killer di donne che terrorizza il quartiere.</td>
+                    </tr>
+                <tr>
+                    <td>2005</td>
+                    <td><b><i>La tigre e la neve</i></b></td>
+                    <td>Attilio de Giovanni, svagato ed estroso professore di poesia, divorziato e padre di due preadolescenti, è innamorato perdutamente di Vittoria, una scrittrice che gli appare in sogno tutte le notti.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+        <label for="Piaciuto">Quale tra i film precedenti ti è piaciuto di più?</label>
+        <input type="text" name="Piaciuto" id="Piaciuto" required>
+    </div>
+    <br>
+    <div>
+        <label for="VistoAlCinema">Lo hai visto al cinema?</label>
+        <input type="radio" name="VistoAlCinema" id="VistoAlCinema" value="si">si
+        <input type="radio" name="VistoAlCinema" id="VistoAlCinema" value="no">no
+    </div>
+    <br>
+    <div>
+        <label for="VolteVisto">Lo hai visto più volte?</label>
+        <input type="checkbox" name="VolteVisto" id="VolteVisto">si
+    </div>
+    <br>
+    <div>
+        <label for="Voto">Asegna un voto da 1 a 10:</label>
+        <input type="number" min="1" max="10" required>
+        <input type="submit" value="Invia">
+        <a href="Index.html"><img width="50" src="ritorna.gif" alt="Ritorna alla Home"></a>
+    </div>
+</body>
+</html>

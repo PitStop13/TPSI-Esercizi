@@ -1,0 +1,12 @@
+i, a {
+  cursor: pointer;
+}
+
+.bi-person-circle {
+  font-size: 1.5rem;
+}
+
+.bi-star, .bi-star-fill {
+  padding: 0 2px;
+  cursor: default;
+}

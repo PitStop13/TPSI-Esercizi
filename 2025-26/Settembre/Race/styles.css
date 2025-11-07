@@ -1,0 +1,29 @@
+body{
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrapper {
+  width: 660px;
+}
+
+.btn {
+  width: 20px;
+  height: 20px;
+  margin: 1px;
+  background-color: rgb(127,127,127);
+  pointer-events: none;
+}
+
+#btnStart{
+  margin-top: 20px;
+}
+
+.Blu{
+  color: blue;
+}
+.Green{
+  color: green;
+}

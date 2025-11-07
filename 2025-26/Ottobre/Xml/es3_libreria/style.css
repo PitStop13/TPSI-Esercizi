@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    border: solid green 2px;
+
+}
+
+/*
+tr:hover {
+    background-color: yellow;
+}
+
+ */
+
+th {
+    height: 50px;
+    width: 200px;
+    font-weight: bold;
+    text-align: center; 
+}
+
+td {
+    height: 10px;
+    width: 200px;
+    border: solid green 2px;
+    text-align: center;
+}
+
+button {
+    margin: 30px;
+    height: 50px;
+    width: 200px;
+    border-radius: 25px;
+}
+
+table{
+    margin-top: 20px;
+}
+
+table tr td input{
+    width: 100%;
+}
+
+#tableData{
+    width: 50%;
+}

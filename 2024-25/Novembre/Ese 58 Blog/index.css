@@ -1,0 +1,221 @@
+ @font-face {
+	font-family: 'Sansation';
+	src: local('Sansation'),  /* nome del font */
+	     url('font/Sansation_Regular.eot'),
+	 	 url('font/Sansation_Regular.woff') format('woff'), 
+		 url('font/Sansation_Regular.ttf') format('truetype'), 
+		 url('font/Sansation_Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Sansation';
+	src: local('Sansation'),   /* nome del font */
+	     url('font/Sansation_Bold.eot'),
+		 url('font/Sansation_Bold.woff') format('woff'), 
+		 url('font/Sansation_Bold.ttf') format('truetype'), 
+		 url('font/Sansation_Bold.svg') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+/* BODY */
+body {  
+	width:960px;
+	margin:0 auto;
+	font-family: Sansation, Arial, Helvetica, sans-serif;
+	font-size:10.5pt; 
+	color:#fff; 	
+	text-align:left;
+	background-image:url(img/sky.jpg);
+	background-repeat: no-repeat;
+	background-repeat:center ;
+	background-attachment:fixed;
+	background-size: cover;	
+	line-height:150%; /* ripsetto al default */
+}
+
+/* ************ Tag Generali ***************************** */
+
+h1, h2, h3, h4, h5, h6 { 
+    font-weight:bold;  /* il bold è tolto dal reset */	
+	line-height:120%; 
+}
+time { 
+	color: #0099FF; 
+	font-size:12px; 	 
+}
+
+a { 
+   text-decoration:none;
+   color:#ffCC00;
+}
+a:visited {color:#ffCC00;}
+a:hover  {color:#ffffff;}
+a:focus  {color:#ff0000;}   /* tasto tab */
+a:active {color:#bbbbbb;}   /* cliccato  */
+
+dl {float:left; } 
+dt {float:left; margin-right:10px; } 
+dd {float:left; margin-right:20px; }
+
+
+/* *********************** header  *************************** */
+header > div#hgroup > h1{
+	color: blue;
+	font-size: 50px;
+}
+
+header > div#hgroup > h2{
+	color: black;
+	font-size: 24px;
+	font-weight: lighter;
+}
+
+header > nav > h1{
+	color: rgba(255, 255, 255, 80%);
+}
+
+header > nav{
+	background-color: rgba(0, 0, 0, 50%);
+	border: 1px rgba(0, 0, 0, 50%);
+	border-radius: 10px;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+header > nav  {
+	background-color: rgba(0, 0, 0, 50%);
+	border: 1px rgba(0, 0, 0, 50%);
+	border-radius: 10px;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+header > nav > ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+header > nav > ul > li{
+	background-color: #192444;
+	border: 1px solid #192444;
+	margin-left: 15px;
+	padding: 10px;
+	list-style: none;
+	border-radius: 10px;
+}
+
+header > nav > ul > li > a{
+	color: white !important; 
+	font-weight: bolder;
+}
+
+main{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	margin-bottom: 20px;
+}
+
+section#ultimoPost, section#postMenoRecenti, aside#sideBar{
+	background-color: rgba(0, 0, 0, 50%);
+	border: 1px rgba(0, 0, 0, 50%);
+	border-radius: 10px;
+	padding: 30px;
+}
+
+section#ultimoPost, section#postMenoRecenti{
+	margin-right: 20px;
+}
+
+section#ultimoPost h1, section#postMenoRecenti h1{
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+aside#sideBar h1{
+	font-size: 18px;
+}
+
+section#ultimoPost > h1, section#ultimoPost > article > section.commenti > h1, section#postMenoRecenti > h1, aside#sideBar > h1{
+	font-size: 24px;
+	color: rgba(255, 255, 255, 80%);
+	margin-bottom: 15px;
+}
+
+section#ultimoPost > article > footer > dl{
+	margin-bottom: 30px
+}
+
+article{
+	margin-top: 20px;
+}
+
+section#ultimoPost > article > section > article > footer, section#postMenoRecenti > article > footer, aside#sideBar > article > footer{
+	justify-self: right;
+}
+
+section.commenti h1:nth-child(1){
+	font-size: 24px;
+}
+
+.formCommenti > fieldset > label > input[type=range]{
+	border: 5px solid black;
+}
+
+.formCommenti > fieldset > label > input, .formCommenti > fieldset > label > textarea{
+	display: flex;
+	flex: column;
+	border-radius: 5px;
+	width: 100%;
+}
+
+aside#sideBar > h1, aside#sideBar > section{
+	margin-bottom: 40px;
+}
+
+aside#sideBar > section > form > label > input{
+	border-radius: 5px;
+}
+
+.formCommenti > fieldset > legend{
+	color: #ffCC00;
+	font-size: medium;
+	padding: 5px 0px;
+}
+
+input#reset, input#invia, input#ricerca{
+	background-color: #192444;
+	border: 1px solid #192444;
+	border-radius: 10px;
+	color: white;
+	padding: 5px;
+}
+
+body > footer{
+	background-color: black;
+	border: 1px solid black;
+	border-radius: 10px;
+	opacity: 50%;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	align-content: space-between;
+}
+
+body > footer > dl{
+	display: flex;
+	flex-direction: row;
+	align-content: space-evenly;
+}

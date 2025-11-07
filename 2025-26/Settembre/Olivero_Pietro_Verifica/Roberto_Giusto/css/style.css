@@ -1,0 +1,19 @@
+.Style {
+    background-color: #CCC;
+    width: 30px;
+    height: 30px;
+    font-weight: 600;
+    font-size: large;
+}
+
+.red{
+    background-color: red;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.snake{
+    background-color: black;
+}

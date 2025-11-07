@@ -1,0 +1,23 @@
+<!DOCTYPE AddressContenitore SYSTEM "address.dtd">
+
+<AddressContenitore>
+    <Informazione>
+        <nome>
+            <nomeProprio></nomeProprio>
+            <secondoNome></secondoNome>
+            <cognome></cognome>
+        </nome>
+    
+        <indirizzo>
+            <via></via>
+            <indirizzoPostale></indirizzoPostale>
+            <provincia></provincia>
+            <paese></paese>
+        </indirizzo>
+    
+        <numTelefono></numTelefono>
+        <mail></mail>
+        <nazionalità></nazionalità>
+        <note></note>
+    </Informazione>
+</AddressContenitore>

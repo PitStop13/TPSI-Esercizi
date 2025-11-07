@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Esercitazione 2 - Javascript</title>
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script src="js/script.js" defer></script>
+
+  <!-- These are for testing module, DO NOT TOUCH -->
+  <link href="css/style.test.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
+  <!-- end testing module -->
+</head>
+
+<body>
+  <section id="student-area">
+    <header>
+      <h1>Il sito dell'humor che non fa ridere</h1>
+    </header>
+    <main>
+      <h2>La successione di fibonacci in pillole</h2>
+      <ol id="fib-pills">
+        <li></li>
+        <li>○</li>
+        <li id="third-element">○</li>
+        <li>○○</li>
+        <li>○○○</li>
+        <li>○○○○○</li>
+        <li>○○○○○○○○</li>
+        <li>○○○○○○○○○○○○○</li>
+        <li>○○○○○○○○○○○○○○○○○○○○○</li>
+      </ol>
+      <p>Il terzo elemento della lista contiene ○</p>
+      <p id="number-pills">0 volte</p>
+      <h3>La torre di due in pillole (fino a 3)</h3>
+      <ol id="tower-two-pills"></ol>
+    </main>
+    <footer>
+    </footer>
+  </section>
+
+  <!-- Tests made by the professor, DO NOT TOUCH -->
+  <section id="test-area">
+    <h2>Test reporter</h2>
+    <button id="tests-executor-btn">Esegui tests</button>
+    <div id="mocha"></div>
+  </section>
+  <script src="js/script.test.js"></script>
+  <!-- end testing module -->
+</body>
+
+</html>

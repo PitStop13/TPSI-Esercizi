@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Esercitazione 4 - Javascript</title>
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script src="js/script.js"></script>
+
+  <!-- These are for testing module, DO NOT TOUCH -->
+  <link href="css/style.test.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
+  <!-- end testing module -->
+</head>
+
+<body>
+  <section id="student-area">
+    <header>
+      <h1> CALCOLATORE DI RESISTENZE ELETTRICHE </h1>
+    </header>
+    <main>
+      <div>
+        <select id="band-1">
+          <option value="0">Nero</option>
+          <option value="1">Marrone</option>
+          <option value="2">Rosso</option>
+          <option value="3">Arancio</option>
+          <option value="4">Giallo</option>
+          <option value="5">Verde</option>
+          <option value="6">Blu</option>
+          <option value="7">Viola</option>
+          <option value="8">Grigio</option>
+          <option value="9">Bianco</option>
+        </select>
+        <select id="band-2">
+          <option value="0">Nero</option>
+          <option value="1">Marrone</option>
+          <option value="2">Rosso</option>
+          <option value="3">Arancio</option>
+          <option value="4">Giallo</option>
+          <option value="5">Verde</option>
+          <option value="6">Blu</option>
+          <option value="7">Viola</option>
+          <option value="8">Grigio</option>
+          <option value="9">Bianco</option>
+        </select>
+        <select id="band-3">
+          <option value="0">Nero</option>
+          <option value="1">Marrone</option>
+          <option value="2">Rosso</option>
+          <option value="3">Arancio</option>
+          <option value="4">Giallo</option>
+          <option value="5">Verde</option>
+          <option value="6">Blu</option>
+          <option value="7">Viola</option>
+          <option value="8">Grigio</option>
+          <option value="9">Bianco</option>
+        </select>
+        <select id="band-4">
+          <option value="0">Nero</option>
+          <option value="1">Marrone</option>
+          <option value="2">Rosso</option>
+          <option value="3">Arancio</option>
+          <option value="4">Giallo</option>
+          <option value="5">Verde</option>
+          <option value="6">Blu</option>
+          <option value="7">Viola</option>
+          <option value="8">Grigio</option>
+          <option value="9">Bianco</option>
+          <option value="-1">Oro</option>
+          <option value="-2">Argento</option>
+        </select>
+        <select id="band-5">
+          <option value="1">Marrone</option>
+          <option value="2">Rosso</option>
+          <option value="0.5">Verde</option>
+          <option value="0.25">Blu</option>
+          <option value="0.1">Viola</option>
+          <option value="0.05">Grigio</option>
+          <option value="10">Argento</option>
+          <option value="5">Oro</option>
+        </select>
+        <button id="calculate-button">Calcola Resistenza</button>
+        <p id="result-text"></p>
+      </div>
+    </main>
+    <footer>
+      <button id="tests-executor-btn">Esegui tests</button>
+    </footer>
+  </section>
+
+  <!-- Tests made by the professor, DO NOT TOUCH -->
+  <section id="test-area">
+    <h2>Test reporter</h2>
+    <div id="mocha"></div>
+  </section>
+  <script src="js/script.test.js"></script>
+  <!-- end testing module -->
+</body>
+
+</html>

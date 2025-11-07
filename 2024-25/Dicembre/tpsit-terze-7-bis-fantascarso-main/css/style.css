@@ -1,0 +1,142 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 30px;
+}
+
+:root{
+  --font-family: 'Courier New', Courier, monospace;
+  --background-color-totale: #1E2233;
+  --background-color-match: #4A5582;
+  --color-titoli: blue;
+  --color-match:  white;
+  --color-border-nav: #FA824D;
+}
+
+nav.nav-bar, main > h2{
+  display: flex;
+  flex-direction: row;
+  color: var(--color-titoli);
+}
+
+nav.nav-bar > img{
+  width: 400px;
+  margin-right: 50px;
+}
+
+nav.nav-bar > a{
+  border: 1px solid var(--color-border-nav);
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 30px;
+  text-decoration: none;
+  font-family: var(--font-family);
+}
+
+nav.navbar > a:hover{
+  color: var(--color-border-nav);
+  background-color: var(--color-titoli);
+}
+
+main, footer p{
+  font-family: var(--font-family);
+}
+
+section.fantacalcio  > div, footer{
+  background-color: var(--background-color-totale);
+  border: 1px solid var(--background-color-totale);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-match);
+}
+
+section.fantacalcio > div > div.match{
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+section.fantacalcio > div > div.match > div, section.fantacalcio > div > div.match-live > div{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid var(--background-color-match);
+  align-items: center;
+  border-radius: 10px;
+  background-color: var(--background-color-match);
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+section.fantacalcio > div > div.match > div > div > img{
+  width: 40px;
+}
+
+section.fantacalcio > div > div.match > div > div{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-items: center;
+}
+
+section.fantacalcio > div > div.match-live > div > div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+
+section.fantacalcio > div > div{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+section.fantacalcio > div > div.campo > img{
+  width: 90%;
+}
+
+footer{
+  margin-top: 20px;
+  padding: 10px;
+}
+
+footer > div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+footer p{
+  text-align: center;
+}
+
+footer img.logo-serie-a{
+  width: 80px;
+  margin-right: 10px;
+}
+footer img.logo-dunder-mifflin{
+  width: 200px;
+}
+
+@media screen and (max-width:768px){
+  nav.nav-bar{
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+  }
+
+  header > nav > img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  header > nav > a {
+    margin: 0;
+    margin-top: 10px;
+  }
+}

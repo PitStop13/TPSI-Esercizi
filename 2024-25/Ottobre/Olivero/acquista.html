@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acquista</title>
+</head>
+<body align="center">
+    <img src="img/amazon.png" width="1562" align="center" alt="Barra Amazon" usemap="#mappa">
+    <map name="mappa" title="carrello amazon">
+        <area shape="rect" coords="1440,10,1550,57" href="acquista.html" alt="Acquista" target="blanck">
+    </map>
+    <h1 align="center">Inserisci i dati relativi all'acquisto</h1>
+    <table align="center">
+        <tbody>
+            <tr>
+                <td rowspan="2" align="left"><label for="txtSpedizione" align="center">Luogo di spedizione: </label></td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><input type="radio" checked name="txtSpedizione" id="txtSpedizione" name="IndirizzoSpedizione"/>Domicilio</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="radio" name="txtSpedizione" id="txtSpedizione" name="IndirizzoSpedizione"/>Ufficio postale</td>
+            </tr>
+            <tr>
+                <td rowspan="2" align="left"><label for="txtOpzioni">Opzioni Aggiuntive: </label></td>
+                <td></td>
+                <td><input type="checkbox" name="txtOpzioni" id="txtOpzioni" value="Assicurazione" name="acOpzioni">Assicurazione</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="checkbox" name="txtOpzioni" id="txtOpzioni" value="Assicurazione" name="acOpzioni">Consegna veloce</td>
+            </tr>
+            <tr>
+                <td><label for="txtPagamento">Tipo di pagamento: </label></td>
+                <td></td>
+                <td><select name="txtPagamento" id="txtPagamento">
+                    <option>Visa</option>
+                    <option>Mastercard</option>
+                    <option>American Express</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td align="left"><label for="txtNote">Note: </label></td>
+                <td></td>
+                <td><textarea name="txtNote" id="txtNote" cols="20" rows="5"></textarea></td>
+            </tr>
+            <tr>
+                <td align="left"><input type="submit"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

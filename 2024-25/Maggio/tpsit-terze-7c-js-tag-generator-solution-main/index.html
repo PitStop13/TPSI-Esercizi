@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tag generator</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="application/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+  <header>
+    <img src="img/logo.png" alt="HTML tag generator" />
+    <h1>HTML tag generator</h1>
+  </header>
+  <main>
+    <div class="row">
+      <label for="lst-tag">Tipologia tag</label>
+      <select id="lst-tag">
+        <option value="p">Paragrafo (p)</option>
+        <option value="a">Ancora (a)</option>
+        <option value="div">Contenitore (div)</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label for="txt-number-tags">Numero di tag</label>
+      <input type="number" min="1" id="txt-number-tags"/>
+    </div>
+
+    <div class="row">
+      <label for="txt-content">Contenuto tag</label>
+      <input type="text" id="txt-content"/>
+    </div>
+
+    <div class="row">
+      <button id="btn-create">Crea</button>
+      <button id="btn-clear">Pulisci</button>
+    </div>
+-
+    <div id="dynamic-area"></div>
+  </main>
+  <footer>
+
+  </footer>
+</body>
+
+</html>

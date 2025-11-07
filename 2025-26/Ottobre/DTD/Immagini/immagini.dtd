@@ -1,0 +1,11 @@
+<!ELEMENT img EMPTY>
+<!ELEMENT contenitore ANY>
+<!ELEMENT elemento1 (#PCDATA)>
+<!ELEMENT elemento2 (#PCDATA)>
+<!ELEMENT elemento3 (#PCDATA)>
+
+<!ATTLIST img src CDATA #REQUIRED 
+    align CDATA #IMPLIED
+    height CDATA #IMPLIED
+    width CDATA #IMPLIED
+>

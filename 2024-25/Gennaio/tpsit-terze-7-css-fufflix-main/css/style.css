@@ -1,0 +1,112 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+header, main, footer{
+  margin: 10px 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+header > nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header > nav > h1, header > nav > img{
+  margin-right: 40px;
+}
+
+header > nav > img{
+  width: 200px;
+}
+
+header > nav > h1 > a{
+  text-decoration: none;
+  color: salmon;
+}
+
+main > div{
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  align-items: center;
+}
+
+main > div > div{
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+main > div > img{
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+  width: 80%;
+}
+
+main > div > div > div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+main > div > div > div > img{
+  width: 100px;
+}
+
+footer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer > div > div{
+  padding: 15px 0px;
+}
+
+footer > div > div > a{
+ text-decoration: none;
+}
+
+footer > img{
+  width: 300px;
+}
+
+
+@media screen and (max-width:800px) {
+  header > nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header > nav > img{
+    width: 600px;
+  }
+
+  main > div > img{
+    width: 100%;
+  }
+
+  main > div > div{
+    display: none;
+  }
+
+  footer > img{
+    width: 600px;
+  }
+
+  footer{
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer > div > div{
+    text-align: center;
+  }
+}

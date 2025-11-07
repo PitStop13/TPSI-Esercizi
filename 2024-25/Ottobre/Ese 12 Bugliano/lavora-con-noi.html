@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Esercitazione 4 - HTML e HTML5</title>
+</head>
+
+<body>
+  <header>
+    <img src="img/bugliano-cover-image.png" alt="Comune di Bugliano">
+    <h1>Benvenuti sul sito del comune di Bugliano</h1>
+    <p>In questo sito potete accedere ai avri servizi offerti dal comune ai suoi abitanti</p>
+  </header>
+  <main>
+    <h3>Lavora con noi</h3>
+    <p>Ti ringrazioamo per l'interesse mostrato per il nostro comune.</p>
+    <p>Per inviare la tua candidatura spontanea devi compilare il seguente form:</p>
+    <form action="">
+      <div>
+        <label for="Nome">Nome </label>
+        <input type="text" name="txtNome" id="Nome" placeholder="Mario" required>
+      </div>
+      <div>
+        <label for="Cognome">Cognome </label>
+        <input type="text" name="txtCognome" id="Nome" placeholder="Rossi" required>
+      </div>
+      <div>
+        <label for="DataNascita">Data di nascita </label>
+        <input type="text" name="txtDataNascita" id="DataNascita" placeholder="gg/mm/aaaa" required>
+      </div>
+      <div>
+        <label for="E-mail">E-mail di contatto </label>
+        <input type="text" name="txtE-mail" id="E-mail" placeholder="mariorossi@gmail.com" required>
+      </div>
+      <div>
+        <label for="TipoRichiesta">Tipologia di richiesta </label>
+        <select name="SlcTipoRichiesta" id="TipoRichiesta" required>
+          <option value="PostoFisso">Posto fisso</option>
+          <option value="Rendita">Rendita passiva</option>
+          <option value="NoRichestaParticolare">Nessuna richiesta particolare</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <label for="Note">Note aggiuntive (Opzioanle)</label>
+        <br>
+        <br>
+        <textarea name="txaNote" id="Note"></textarea>
+      </div>
+      <div>
+        <button type="submit">Invia richiesta</button>
+        <button type="reset">Reimposta form</button>
+      </div>
+    </form>
+  </main>
+  <footer>
+    <hr>
+    <p><b>Copyright 2013 - FUFFLINSpa - Invia i diritti rilevanti</b></p>
+    <p><b>Comune di Bugliano</b></p>
+    <ul>
+      <li><a href="reddito-di-maranza.html">Reddito di Maranza</a></li>
+      <li><a href="combatti-fake-news.html">Combatti le fake news</a></li>
+      <li><a href="lavora-con-noi.html">Lavora con noi</a></li>
+      <li><a href="login-ok.html">Login</a></li>
+    </ul>
+  </footer>
+</body>
+
+</html>

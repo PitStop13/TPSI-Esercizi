@@ -1,0 +1,16 @@
+<!DOCTYPE letteraContenitore SYSTEM "lettera.dtd">
+
+<letteraContenitore>
+    <lettera>
+        <mittente></mittente>
+        <data></data>
+        <dest></dest>
+        <oggetto></oggetto>
+        <saluto></saluto>
+        <corpo>
+            <paragrafo></paragrafo>
+        </corpo>
+        <chiusura></chiusura>
+        <firma></firma>
+    </lettera>
+</letteraContenitore>

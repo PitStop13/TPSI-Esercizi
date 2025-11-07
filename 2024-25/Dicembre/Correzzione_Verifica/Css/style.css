@@ -1,0 +1,65 @@
+html, body{
+    height: 100%;
+    width: 100%;
+
+}
+
+*{
+    font-family: Courier, Arial;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 50px;
+}
+
+header > img.brand-image{
+    height: 100px;
+    padding-right: 50px;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 50px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+main > .table-area{
+    flex: 2;
+    margin: 50px;
+}
+
+.table-header{
+    display: flex;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid black;
+}
+
+.table-header .header-item{
+    flex: 1;
+    padding: 10px;/*per fare in modo che ogni elemento occupi lo stesso spazio*/
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-row{
+    display: flex;
+    border-bottom: 1px solid lightgray;
+}
+
+.table-item{
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.table-row:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
+}

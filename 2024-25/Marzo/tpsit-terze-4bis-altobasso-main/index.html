@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Esercitazione 4bis - Alto Basso</title>
+
+  <script src="js/script.js"></script>
+
+  <!-- These are for testing module, DO NOT TOUCH -->
+  <link href="css/style.test.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
+  <!-- end testing module -->
+</head>
+
+<body>
+  <section id="student-area">
+    <header>
+      <h1>Alto o basso</h1>
+    </header>
+
+    <main>
+      <div class="generate">
+        <h3>Generazione numero</h3>
+        <button id="btn-generate">Genera numero</button>
+      </div>
+
+      <div class="play">
+        <h3>Gioca</h3>
+
+        <label for="txt-number">Tentativo</label>
+        <input type="number" id="txt-number" />
+
+        <button id="btn-play">Gioca</button>
+      </div>
+
+      <div class="results" id="div-results">
+        <p id="p-result"></p>
+        <p id="p-attempts"></p>
+      </div>
+    </main>
+  </section>
+
+  <!-- Tests made by the professor, DO NOT TOUCH -->
+  <section id="test-area">
+    <input type="text" id="txt-secret-number" disabled>
+    <button id="btn-tests-executor">Esegui tests</button>
+    <h2>Test reporter</h2>
+    <div id="mocha"></div>
+  </section>
+  <script src="js/script.test.js"></script>
+  <!-- end testing module -->
+</body>
+
+</html>

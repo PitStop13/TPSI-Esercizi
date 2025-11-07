@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Esercitazione 3 - Javascript</title>
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script src="js/script.js" defer></script>
+
+
+  <!-- These are for testing module, DO NOT TOUCH -->
+  <link href="css/style.test.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
+  <!-- end testing module -->
+</head>
+
+<body>
+  <section id="student-area">
+    <header>
+
+    </header>
+    <main>
+      <h1>Tabella di esempio</h1>
+      <table id="example-table">
+        <thead>
+          <tr>
+            <th>Studente</th>
+            <th>Data di nascita</th>
+            <th>Media dei voti</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gianluca Giaccardi</td>
+            <td>01-01-1991</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>Bruno Bucciarati</td>
+            <td>01-01-1992</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>Giorno Giovanna</td>
+            <td>10-04-1997</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>Aldo Baglio</td>
+            <td>08-01-2001</td>
+            <td>4.5</td>
+          </tr>
+          <tr>
+            <td>Giacomo Poretti</td>
+            <td>25-12-1996</td>
+            <td>10</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer>
+
+    </footer>
+  </section>
+
+  <!-- Tests made by the professor, DO NOT TOUCH -->
+  <section id="test-area">
+    <h2>Test reporter</h2>
+    <button id="tests-executor-btn">Esegui tests</button>
+    <div id="mocha"></div>
+  </section>
+  <script src="js/script.test.js"></script>
+  <!-- end testing module -->
+</body>
+
+</html>

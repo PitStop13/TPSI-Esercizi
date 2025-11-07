@@ -1,0 +1,23 @@
+<!ELEMENT AddressContenitore (Informazione+)>  
+
+<!-- + indica che devo avere ALMENO 1 elemento-->
+<!-- ? indica che puoi averne o 1 o nessuna -->
+<!-- * indica che puoi sia averne che non (0,1,2,3...) -->
+
+<!ELEMENT Informazione (nome,indirizzo*,numTelefono*,mail*,nazionalità?,note*)>
+
+<!ELEMENT nome (nomeProprio,secondoNome*,cognome)>
+<!ELEMENT nomeProprio (#PCDATA)>
+<!ELEMENT secondoNome (#PCDATA)>
+<!ELEMENT cognome (#PCDATA)>
+
+<!ELEMENT indirizzo (via+,indirizzoPostale,provincia?,paese+)>
+<!ELEMENT via (#PCDATA)>
+<!ELEMENT indirizzoPostale (#PCDATA)>
+<!ELEMENT provincia (#PCDATA)>
+<!ELEMENT paese (#PCDATA)>
+
+<!ELEMENT numTelefono (#PCDATA)>
+<!ELEMENT mail (#PCDATA)>
+<!ELEMENT nazionalità (#PCDATA)> 
+<!ELEMENT note (#PCDATA)>

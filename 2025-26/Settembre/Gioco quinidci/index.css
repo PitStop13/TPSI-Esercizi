@@ -1,0 +1,35 @@
+h1{
+    text-align:center;
+}
+ 
+#wrapper{
+    width:200px;
+    height:200px;
+    margin:15px auto;
+    border:0px solid red;
+ 
+    /*
+        display:flex;
+        flex-wrap:wrap;
+    */
+}
+ 
+#wrapper div{
+    width:40px;
+    height:40px;
+    margin:3px;
+    padding:0;
+    border:1px solid black;
+    font-size:16pt;
+    font-weight:bold;
+    text-align:center;
+ 
+    line-height:40px;
+ 
+    /* senza vertical-align dispaly:inline-block falsa gli allineamenti */
+    /* una alternativa potrebbe essere quella di utilizzare "&nbsp;" nella cella vuota */
+    display:inline-block;
+    vertical-align:middle;
+ 
+    /* oppure impostare il flax layout sul contenitore */
+}

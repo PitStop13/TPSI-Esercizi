@@ -1,0 +1,20 @@
+<!ELEMENT bookstore (book+)>  
+
+<!-- + indica che devo avere ALMENO 1 elemento-->
+<!-- ? indica che puoi averne o 1 o nessuna -->
+<!-- * indica che puoi sia averne che non (0,1,2,3...) -->
+
+<!ELEMENT book (title,author+,year?,price)>
+<!ELEMENT title (#PCDATA)> 
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+
+<!-- #PCDATA indica che ho un elemento testuale -->
+
+<!ATTLIST book category (cooking|children|web) #REQUIRED
+    cover CDATA #IMPLIED
+>
+
+<!-- <!ATTLIST title lang (it|en|fr|sp) #REQUIRED> -->
+<!ATTLIST title lang CDATA #FIXED "it">

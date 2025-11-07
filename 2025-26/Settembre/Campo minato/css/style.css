@@ -1,0 +1,32 @@
+/* Base cella (tuo stile) */
+.btnStyle {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    background: gray;
+    cursor: pointer;
+    font: 600 16px/1 Arial, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+  }
+  
+  /* Bomba rivelata a fine partita */
+  .bomb {
+    /* lasciata neutra finché non rivelata dalla logica */
+  }
+  
+  /* Stati numerici (sovrascrivono il base quando rivelati) */
+  .num { background-color: #fff; color: green; }         /* 0 come verde */
+  .num1 { background-color: #fff; color: red; }          /* 1 rosso */
+  .num2 { background-color: #fff; color: red; }          /* 2 rosso */
+  .num3 { background-color: #fff; color: purple; }
+  .num4 { background-color: #fff; color: purple; }
+  .num5 { background-color: #fff; color: purple; }
+  .num6 { background-color: #fff; color: purple; }
+  .num7 { background-color: #fff; color: purple; }
+  .num8 { background-color: #fff; color: purple; }
+  
+  /* Stato “bombe rivelate”: se vuoi, usa una classe globale al reveal */
+  .bombeRivelate { background-color: red !important; color: white !important; }
+  

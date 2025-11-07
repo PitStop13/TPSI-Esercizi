@@ -1,0 +1,87 @@
+.img.right, .img-left, .img-vibing-cow, .vibe-check-passed, .vibing-text
+{
+    display: none;
+}
+
+@media screen and (min-width: 1201px) {
+
+    div.container > img.img-right
+    {
+        display: block;
+        width: 20%;
+    }
+
+    div.container
+    {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        align-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    div.container > img.img-left
+    {
+        display: block;
+        width: 30%;
+    }
+    div.container > img.img-right
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    div.container > img.img-left
+    {
+        display: none;
+    }
+
+    div.container > img.img-right
+    {
+        display: block;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    div.container > img.img-right
+    {
+        display: none;
+    }
+
+    div.container > img.img-vibing-cow
+    {
+        display: block;
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    div.container > img.img-right, div.container > img.img-left,  div.container > p.checking-text
+    {
+        display: none;
+    }
+
+    div.container > p.vibing-text, div.container > img.vibe-check-passed, div.container > img.img-vibing-cow
+    {
+        display: block;
+    }
+
+    div.container > img.img-vibing-cow
+    {
+        width: 60%;
+    }
+
+    div.container > img.vibe-check-passed
+    {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 11;
+    }
+}

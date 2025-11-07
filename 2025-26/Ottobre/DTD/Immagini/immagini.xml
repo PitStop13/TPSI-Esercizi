@@ -1,0 +1,12 @@
+<!DOCTYPE contenitore SYSTEM "immagini.dtd">
+<contenitore>
+    
+    <img src="img1.jpg" align = "center"></img>
+    <elemento1></elemento1>
+    <elemento2></elemento2>
+    <elemento3></elemento3>
+    
+    
+
+    
+</contenitore>

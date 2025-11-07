@@ -1,0 +1,9 @@
+<!DOCTYPE bookstore SYSTEM "bookstore.dtd">
+<bookstore>
+    <book category="children">
+        <title lang="it"></title>
+        <author></author>
+        <year></year>
+        <price></price>
+    </book>
+</bookstore>

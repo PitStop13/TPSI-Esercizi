@@ -1,0 +1,31 @@
+h1:hover{
+    color: magenta;
+    cursor: pointer; /* fa uscire la manina */
+}
+
+p {
+    border: 1px solid blue;
+    background-color: khaki;
+}
+
+p.grassetto{ /* vale solo nei paragrafi */
+    font-weight: bolder;
+    color: red;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline; /* la sottolineatura appare solo quando ci passo sopra */
+}
+
+.grassetto {
+    font-weight: bold;
+}
+
+#primolorem{ /* viene applicata solotanto al tag che ha l'id con quel nome */
+    text-decoration: line-through;
+}

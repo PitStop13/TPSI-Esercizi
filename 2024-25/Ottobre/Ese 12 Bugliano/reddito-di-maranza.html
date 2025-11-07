@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Esercitazione 4 - HTML e HTML5</title>
+</head>
+
+<body>
+  <header>
+    <img src="img/bugliano-cover-image.png" alt="Comune di Bugliano">
+    <h1>Benvenuti sul sito del comune di Bugliano</h1>
+    <p>In questo sito potete accedere ai avri servizi offerti dal comune ai suoi abitanti</p>
+  </header>
+  <main>
+    <h3>Novità: Reddito di Maranza</h3>
+    <img src="img/dedicata-a-te.png" alt="Reddito dei Maranza">
+    <p>È possibile ora richiedere la carta deicata a te per il reddito di Maranza</p>
+    <p>Per inviare la tua richiesta devi compilare il seguente form:</p>
+    <form action="richiesta-ok.html" target="">
+      <div>
+        <label for="Nome">Nome </label>
+        <input type="text" name="txtNome" id="Nome" placeholder="Mario" required>
+      </div>
+      <div>
+        <label for="Cognome">Cognome </label>
+        <input type="text" name="txtCognome" id="Nome" placeholder="Rossi" required>
+      </div>
+      <div>
+        <label for="DataNascita">Data di nascita </label>
+        <input type="text" name="txtDataNascita" id="DataNascita" placeholder="gg/mm/aaaa" required>
+      </div>
+      <div>
+        <label for="Codicefiscale">Codice fiscale </label>
+        <input type="text" name="txtCodicefiscale" id="Codicefiscale" placeholder="LSNEJD54L22I432J" required>
+      </div>
+      <div>
+        <label for="E-mail">E-mail di contatto </label>
+        <input type="text" name="txtE-mail" id="E-mail" placeholder="mariorossi@gmail.com" required>
+      </div>
+      <div>
+        <b>Perchè vuoi il reddito?</b>
+        <br>
+        <input type="radio" name="Reddito" value="MarsupioGucci" required>Marsupio Gucci
+        <br>
+        <input type="radio" name="Reddito" value="GiaccaSupreme" required>Giacca Supreme Drip
+      </div>
+      <div>
+        <button type="submit">Invia richiesta</button>
+        <button type="reset">Reimposta form</button>
+      </div>
+    </form>
+  </main>
+  <footer>
+    <hr>
+    <p><b>Copyright 2013 - FUFFLINSpa - Invia i diritti rilevanti</b></p>
+    <p><b>Comune di Bugliano</b></p>
+    <ul>
+      <li><a href="reddito-di-maranza.html">Reddito di Maranza</a></li>
+      <li><a href="combatti-fake-news.html">Combatti le fake news</a></li>
+      <li><a href="lavora-con-noi.html">Lavora con noi</a></li>
+      <li><a href="login-ok.html">Login</a></li>
+    </ul>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+.btnStyle{
+    background-color:whitesmoke;
+    width: 75px;
+    height: 75px;
+    font-weight: 600;
+    font-size: large;
+}
+
+.wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#btnPlay{
+    background-color: yellow;
+    width: 200px;
+    border: 2px solid black;
+    border-radius: 100px;
+
+}
+
+.done{
+    background-color: darkgray;
+    width: 75px;
+    height: 75px;
+    font-weight: 600;
+    font-size: large;
+}

@@ -1,0 +1,120 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/*selettore universale*/*{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.05em;
+}
+
+header > nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+header > nav > img{
+  margin-right: 30px;
+  height: 50px;
+}
+
+header > nav > a{
+  text-decoration: none;
+  padding: 10px;
+  color: salmon;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+header > nav > a:hover{
+  background-color: salmon;
+  color: white;
+  cursor: pointer;
+}
+
+main{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
+}
+
+main > div.player{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 2;
+}
+
+main > div.puntate{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+main > div.puntate > div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px 0px;
+  width: 100%;
+}
+
+main > div.puntate > div > img{
+  height: 50px;
+  padding-right: 5px;
+}
+
+footer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0px 5px;
+}
+
+footer > div > a{
+ text-decoration: none;
+ padding: 10px;
+}
+
+footer > img{
+  height: 100px;
+}
+
+
+@media screen and (max-width:768px) {
+  header > nav, footer{
+    flex-direction: column;
+  }
+
+  header > nav > img, footer > img{
+    width: 100%;
+    height: auto;
+  }
+
+  main > div.player{
+    width: 100%;
+  }
+
+  main > div.puntate{
+    display: none;
+  }
+
+  footer > div > a{
+    text-align: center;
+  }
+}
