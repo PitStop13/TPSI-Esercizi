@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <title>Esercizio jQuery - Selettori</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="index.js"></script>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            #output {
+                margin-top: 20px;
+                padding: 10px;
+                border: 1px solid #444;
+                background: #f0f0f0;
+                min-height: 40px;
+            }
+            button {
+                margin: 5px;
+                padding: 10px 15px;
+            }
+            .evidenziato {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>Esercizio jQuery - Operazioni sui selettori</h2>
+        <p class="paragrafo">Questo è il primo paragrafo.</p>
+        <p id="speciale">Questo è il paragrafo con id "speciale".</p>
+        <p class="paragrafo">Questo è un altro paragrafo con classe "paragrafo".</p>
+
+        <div class="box">Sono un div con classe "box".</div>
+        <div class="box">Sono un altro div con classe "box".</div>
+
+        <br>
+
+        <button id="countP">Conta paragrafi</button>
+        <button id="colorDiv">Evidenzia i div .box</button>
+        <button id="showSpecial">Mostra contenuto #speciale</button>
+        <button id="reset">Reset evidenziazioni</button>
+
+        <div id="output">Risultati...</div>
+
+    </body>
+</html>
