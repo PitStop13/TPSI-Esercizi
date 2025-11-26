@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio 6</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <!-- Uso il file locale: <script src="../jquery.js"></script> -->
+
+    <script src="index.js"></script>
+    <style>
+        #wrapper li {
+            margin: 5px;
+            width: 200px;
+        }
+
+        ul:first-of-type {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <h1 align="center"> Scansione Elementi </h1>
+
+    <ul>
+        <!-- mettere gli li -->
+        <li><a href="#" onclick="evidenzia('li:first-child')">Evidenzia primo figlio</a></li>
+        <li><a href="#" onclick="evidenzia('li:nth-child(2)')">Evidenzia secondo figlio</a></li>
+        <li><a href="#" onclick="evidenzia('li:nth-child(even)')">Evidenzia elementi pari</a></li>
+        <li><a href="#" onclick="evidenzia('li:nth-child(odd)')">Evidenzia elementi dispari</a></li>
+        <li><a href="#" onclick="evidenzia('li:nth-child(3n)')">Evidenzia multipli di 3</a></li>
+        <li><a href="#" onclick="evidenzia('li:last-child')">Evidenzia ultimo figlio</a></li>
+        
+    </ul>
+    <br /><br />
+
+    <ul id="wrapper">
+        <li>Menu 1 </li>
+        <li>Menu 2 </li>
+        <li>Menu 3 </li>
+        <li>Menu 4 </li>
+        <li>Menu 5 </li>
+        <li>Menu 6 </li>
+        <li>Menu 7 </li>
+        <li>Menu 8 </li>
+        <li>Menu 9 </li>
+    </ul>
+
+    <input type="button" id="btn1" value="Conta n di elementi">
+    <input type="button" id="btn2" value="Visualizza testi">
+    <input type="button" id="btn3" value="Visualizza testi elem pari">
+    <input type="button" id="btn4" value="Colora di verde elem dispari">
+    <input type="button" id="btn5" value="Colora di verde dal secondo al settimo elemento">
+</body>
+
+</html>
