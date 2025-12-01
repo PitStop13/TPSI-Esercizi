@@ -46,9 +46,6 @@ $(document).ready(function () {
     });
 
     $("#btn4").click(function () {
-        //Pulisco tutto in modo da cancellare i colori precedenti
-        $("#wrapper").children("li").css("color", "black");
-
         let li = $("#wrapper").children("li").filter(":nth-child(odd)");
         li.each(function (i, ref) {
             $(ref).css("color", "green");
@@ -56,8 +53,6 @@ $(document).ready(function () {
     });
 
     $("#btn5").click(function () {
-        //Pulisco tutto in modo da cancellare i colori precedenti
-        $("#wrapper").children("li").css("color", "black");
         //Soluzione 1
         /*let li = $("#wrapper").children("li");
         li.each(function (i, ref) {
@@ -68,5 +63,9 @@ $(document).ready(function () {
         //$("#wrapper").children("li").filter(":nth-child(n+2)").filter(":nth-child(-n+7)").css("color", "green");
         //Soluzione 3 con slice
         $("#wrapper").children("li").slice(1, 7).css("color", "green");
+    });
+
+    $("#btn6").click(function () {
+        $("#wrapper").children("li").css("color", "black", "background-color", "white");
     });
 });
