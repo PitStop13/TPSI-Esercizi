@@ -38,13 +38,13 @@ function visualizza(codice) {
                 });
             break;
         case 5:
-            _selector.find("input:checkbox[name=chk]").not(":checked")
+            _selector.find(":checkbox[name=chk]").not(":checked")
                 .each(function (index, elem) {
                     msg += $(elem).val() + "\n";
                 });
             break;
         case 6:
-            msg = $("input[type=radio]:checked").val();
+            msg = $(":radio:checked").val();
             break;
         case 7:
             $(":radio:not(:checked)")
@@ -82,7 +82,7 @@ function imposta(codice) {
             $(":checkbox").val(["opzione 2", "opzione 3"]); //lo tratto come se fosse un array di valori
             break;
         case 4://RadioButton
-            $("input[type=radio]").val(["no"]); //lo tratto come se fosse un array di valori
+            $(":radio").val(["no"]); //lo tratto come se fosse un array di valori
             break;
         case 5://ListBox selezione multipla
             _selector.find("select").eq(1).val(["1", "2"]); //lo tratto come se fosse un array di valori

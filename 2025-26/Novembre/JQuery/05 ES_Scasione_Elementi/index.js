@@ -19,12 +19,12 @@ $(document).ready(function () {
         let msg = "";
 
         //Soluzione1
-        for (let i = 0; i < list.length; i++)
-            msg += list.eq(i).text();
+        // for (let i = 0; i < list.length; i++)
+        //     msg += list.eq(i).text();
 
         //Soluzione2
-        for (let item of list)
-            msg += $(item).text();
+        // for (let item of list)
+        //     msg += $(item).text();
 
         //Soluzione3
         list.each(function (i) {
@@ -39,22 +39,22 @@ $(document).ready(function () {
     $("#btn3").click(function () {
         let li = $("#wrapper").children("li").filter(":nth-child(even)");
         let msg = "";
-        li.each(function (i, ref) {
-            msg += $(ref).text();
+        li.each(function (i) {
+            msg += li.eq(i).text();
         });
         alert(msg);
     });
 
     $("#btn4").click(function () {
         let li = $("#wrapper").children("li").filter(":nth-child(odd)");
-        li.each(function (i, ref) {
-            $(ref).css("color", "green");
+        li.each(function (i) {
+            $(li.eq(i)).css("color", "green");
         });
     });
 
     $("#btn5").click(function () {
         //Soluzione 1
-        /*let li = $("#wrapper").children("li");
+        /*let li = $("#wrapper").children("li");    
         li.each(function (i, ref) {
             if (i >= 1 && i <= 6)
                 $(ref).css("color", "green");
