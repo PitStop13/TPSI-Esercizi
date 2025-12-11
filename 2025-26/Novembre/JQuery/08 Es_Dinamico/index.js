@@ -27,7 +27,20 @@ function sposta(pos) { //sposta da menu 1 a menu 2 e da menu 2 a menu 1
 }
 
 function nuovo(pos) {
+    let _li = $("<li>").text("menu " + pos + " voce 0")
+    if (pos == 1) {
+        _menu[0].children().first().before(_li)
+    }
+    else {
+        _li.insertAfter(_menu[1].children().first())
+    }
 }
 
 function replica(pos) {
+    //aggiungo prima di ogni elmento
+    let _li = $("<li>").text("menu " + pos + " voce 0")
+    _menu[pos - 1].children().each(function (index, element) {
+        $(element).before(_li.clone())
+    })
+
 }

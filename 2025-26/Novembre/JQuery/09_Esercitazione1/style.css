@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+#campo {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url("./img/Porta.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#portiere {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 8vw;
+    min-width: 80px;
+    max-width: 150px;
+    scale: 4;
+    z-index: 2;
+    transition: left 0.3s ease;
+}
+
+#palla {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5vw;
+    min-width: 50px;
+    max-width: 100px;
+    height: auto;
+    scale: 2;
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.8s ease;
+}
+
+#sinistra {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.8s ease;
+}
+
+#centro {
+    position: fixed;
+    bottom: 5%;
+    left: calc(5% + 110px);
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.8s ease;
+}
+
+#destra {
+    position: fixed;
+    bottom: 5%;
+    left: calc(5% + 220px);
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.8s ease;
+}
+
+#ricarica {
+    position: fixed;
+    bottom: 5%;
+    left: calc(5% + 330px);
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.8s ease;
+}
