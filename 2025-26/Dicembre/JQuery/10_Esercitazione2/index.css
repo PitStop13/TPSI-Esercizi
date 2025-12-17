@@ -32,4 +32,6 @@ h1{
     vertical-align:middle;
  
     /* oppure impostare il flax layout sul contenitore */
+    background-color: white;
+    position: relative;
 }

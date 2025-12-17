@@ -4,12 +4,11 @@ $(document).ready(function () {
     for (let i = 0; i < DIM; i++) {
         for (let j = 0; j < DIM; j++) {
             let div = $("<div></div>");
-            div.attr("id", "btn" + i + j);
-            div.addClass("btn"); // Optional: add a class for styling if needed, though id is used for logic
+            div.prop("id", "btn" + i + j);
+            div.prop("class", "btn");
             div.click(sposta);
             wrapper.append(div);
         }
-
     }
 
     let ref;
@@ -17,8 +16,9 @@ $(document).ready(function () {
         let x, y;
         do {
             x = Math.floor(DIM * Math.random()); //0-3
-            y = Math.floor(DIM * Math.random()); //0-3
+            y = Math.floor(DIM * Math.random());
             ref = $("#btn" + x + y);
+            ref.css("background-color", "gray");
         } while (ref.text() != "");
         ref.text(i);
 
@@ -27,7 +27,9 @@ $(document).ready(function () {
 
 function sposta() {
     let btn = $(this);
-    let id = btn.attr("id");
+    if ($(".btn").is(":animated")) return;
+
+    let id = btn.prop("id");
     let x = parseInt(id.substr(3, 1));
     let y = parseInt(id.substr(4, 1));
 
@@ -40,7 +42,34 @@ function sposta() {
     } else if (x < DIM - 1 && $("#btn" + (x + 1) + y).text() == "") {
         swap(btn, $("#btn" + (x + 1) + y));
     }
+}
 
+function swap(Pieno, Vuoto) {
+    let pPos = Pieno.position();
+    let vPos = Vuoto.position();
+
+    let pTop = vPos.top - pPos.top;
+    let pLeft = vPos.left - pPos.left;
+
+    Pieno.css("z-index", 100);
+    Vuoto.css("z-index", 100);
+
+    $.when(
+        Pieno.animate({ top: pTop, left: pLeft }, 200),
+        Vuoto.animate({ top: -pTop, left: -pLeft }, 200)
+    ).done(function () {
+        let tmp = Pieno.text();
+        Pieno.text(Vuoto.text());
+        Vuoto.text(tmp);
+
+        Pieno.css({ "background-color": "white", "top": 0, "left": 0, "z-index": "" });
+        Vuoto.css({ "background-color": "gray", "top": 0, "left": 0, "z-index": "" });
+
+        checkVictory();
+    });
+}
+
+function checkVictory() {
     let indice = 1;
     for (let righe = 0; righe < DIM; righe++) {
         for (let colonne = 0; colonne < DIM; colonne++) {
@@ -51,25 +80,7 @@ function sposta() {
                 }
                 return;
             }
-
             indice++;
         }
     }
-
-}
-
-function swap(Pieno, Vuoto) {
-    let tmp = Pieno.text();
-    Pieno.text(Vuoto.text());
-    Vuoto.text(tmp);
-    //aggiungo un animazione per lo scambio carino che le faccia cambiare colore
-    //Uso animate per farli passare dalla posizione di partenza alla posizione di arrivo
-    Pieno.animate({
-        left: Vuoto.position().left,
-        top: Vuoto.position().top
-    }, 1000);
-    Vuoto.animate({
-        left: Pieno.position().left,
-        top: Pieno.position().top
-    }, 1000);
 }
