@@ -32,7 +32,6 @@ $(document).ready(function () {
     }
 
 
-    //---------------->TextBox
     let h1 = $("<h1></h1>").text("Indovina la tonalità del colore").css({
         "text-align": "center",
         "margin-bottom": "30px"
@@ -98,7 +97,6 @@ $(document).ready(function () {
     });
     textBox_Wrapper.append(btnOk);
 
-    //---------------->Suggerimento
     let suggerimento = $("<div></div>").css({
         "display": "flex",
         "align-items": "center",
@@ -108,28 +106,35 @@ $(document).ready(function () {
     });
     $("#suggerimento").append(suggerimento);
 
-    //Gestione logica e controlli
     btnOk.click(function () {
         let pos = $("#Posizione").val();
         let targetId = "#btn" + (pos - 1);
-        if ($(targetId).css("opacity") === "0") {
-            alert("Giaà indovinato");
+        let elemento = $(targetId);
+
+        if (elemento.length === 0) {
+            alert("Posizione non valida!");
             return;
         }
 
-        let elemento = $(targetId);
-        if (elemento.length === 0) return;
+        if (elemento.css("opacity") === "0") {
+            alert("Già indovinato");
+            return;
+        }
 
         let rgbVal = elemento.css("background-color");
         let parts = rgbVal.replace("rgb(", "").replace(")", "").split(",");
 
-        let rSorgente = parts[0].trim();
-        let gSorgente = parts[1].trim();
-        let bSorgente = parts[2].trim();
+        let rSorgente = parseInt(parts[0].trim());
+        let gSorgente = parseInt(parts[1].trim());
+        let bSorgente = parseInt(parts[2].trim());
 
-        let rOk = ($("#Red").val() === rSorgente);
-        let gOk = ($("#Green").val() === gSorgente);
-        let bOk = ($("#Blue").val() === bSorgente);
+        let rInput = parseInt($("#Red").val());
+        let gInput = parseInt($("#Green").val());
+        let bInput = parseInt($("#Blue").val());
+
+        let rOk = (rInput === rSorgente);
+        let gOk = (gInput === gSorgente);
+        let bOk = (bInput === bSorgente);
 
         if (rOk && gOk && bOk) {
             elemento.css("opacity", "0");
@@ -137,10 +142,30 @@ $(document).ready(function () {
             elemento.off();
             alert("Indovinato!");
         } else {
-            alert("Sbagliato! Riprova.");
+            if (!rOk) visualizzaSuggerimento($("#Red"), rInput, rSorgente);
+            if (!gOk) visualizzaSuggerimento($("#Green"), gInput, gSorgente);
+            if (!bOk) visualizzaSuggerimento($("#Blue"), bInput, bSorgente);
         }
+
         if ($("#quadrati").children().length === 0) {
             alert("Hai vinto!");
         }
     });
+
+    function visualizzaSuggerimento(obj, val, target) {
+        let original = obj.val();
+        if (isNaN(val)) return;
+
+        if (val > target) {
+            obj.val("maggiore");
+        } else if (val < target) {
+            obj.val("minore");
+        }
+
+        obj.prop("readonly", true);
+        setTimeout(function () {
+            obj.val(original);
+            obj.prop("readonly", false);
+        }, 3000);
+    }
 })

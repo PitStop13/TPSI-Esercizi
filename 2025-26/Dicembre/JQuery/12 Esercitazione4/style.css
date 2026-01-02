@@ -1,0 +1,59 @@
+body {
+    background-color: #f8f9fa;
+}
+
+#game-board {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.memory-card {
+    height: 120px;
+    width: 120px;
+    cursor: pointer;
+    border: 3px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    background-color: #212529;
+    margin: 10px;
+}
+
+.memory-card:not(.flipped):not(.matched):hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: #adb5bd;
+}
+
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Matched state */
+.memory-card.matched {
+    opacity: 0.8;
+    cursor: default;
+}
+
+.memory-card.flipped {
+    border-color: #007bff;
+    cursor: default;
+}
+
+#timer {
+    font-size: 28px;
+    font-weight: bold;
+    color: #343a40;
+    background-color: #e9ecef;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
