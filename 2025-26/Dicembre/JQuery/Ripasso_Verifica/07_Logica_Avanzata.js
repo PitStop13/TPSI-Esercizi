@@ -53,15 +53,16 @@ let x = parseInt(id.substr(3, 1)); // prende il carattere a indice 3
 // 6. TIMERS (setTimeout, setInterval)
 // -------------------------------------------------------------
 // SetTimeout: esegue una volta dopo X ms
-setTimeout(function () {
+let timer = setTimeout(function () {
     alert("Tempo scaduto!");
 }, 1000);
 
 // SetInterval: ripete ogni X ms
-let timer = setInterval(() => {
+let timer2 = setInterval(() => {
     time++;
     $("#t").text(time);
 }, 1000);
 
 // Fermare il timer
-clearInterval(timer);
+clearTimeout(timer);
+clearInterval(timer2);
