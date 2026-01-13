@@ -1,0 +1,99 @@
+/* Struttura Base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1a1a2e;
+    /* Blu molto scuro */
+    color: #e94560;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.header h1 {
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #e94560;
+}
+
+/* Container Info */
+.game-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background: #16213e;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #0f3460;
+}
+
+.info-box {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #ff2e63;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
+.btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Arena di Gioco */
+#arena {
+    width: 800px;
+    height: 500px;
+    background-color: #0f3460;
+    background-image: radial-gradient(circle, #16213e 0%, #0f3460 100%);
+    border: 3px solid #e94560;
+    border-radius: 10px;
+    position: relative;
+    cursor: crosshair;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+/* Il Fantasma */
+.ghost {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50% 50% 10% 10%;
+    position: absolute;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.ghost::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 5px;
+    height: 5px;
+    background-color: #1a1a2e;
+    border-radius: 50%;
+    box-shadow: 25px 0 0 #1a1a2e;
+}
