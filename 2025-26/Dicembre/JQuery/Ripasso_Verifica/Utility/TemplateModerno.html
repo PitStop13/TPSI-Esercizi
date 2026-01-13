@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Base Verifica</title>
+
+    <!-- jQuery da CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --primary: #4338ca;
+            --accent: #f43f5e;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 900px;
+            min-height: 400px;
+        }
+
+        /* Utility Classes */
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gap-2 {
+            gap: 1rem;
+        }
+
+        .m-t-2 {
+            margin-top: 2rem;
+        }
+
+        /* Modern Button */
+        .btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(67, 56, 202, 0.3);
+            filter: brightness(1.1);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        /* Grid Layout Example */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .grid-item {
+            aspect-ratio: 1;
+            background: #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .grid-item:hover {
+            background: #cbd5e1;
+        }
+
+        .active {
+            background: var(--primary) !important;
+            color: white;
+        }
+
+        /* Custom Input */
+        .input-field {
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-field:focus {
+            border-color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Titolo Esercitazione</h1>
+        <p>Descrizione breve del compito da svolgere</p>
+    </div>
+
+    <div class="container">
+        <!-- Area Controlli -->
+        <div class="flex-center gap-2">
+            <input type="text" id="txtInput" class="input-field" placeholder="Scrivi qualcosa...">
+            <button id="btnAggiungi" class="btn">Aggiungi</button>
+            <button id="btnReset" class="btn btn-accent">Reset</button>
+        </div>
+
+        <!-- Area Contenuto Dinamico -->
+        <div id="game-board" class="grid-container">
+            <!-- Gli elementi verranno generati qui -->
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            console.log("DOM pronto!");
+
+            // Variabili di stato
+            let contatore = 0;
+
+            // Eventi
+            $("#btnAggiungi").on("click", function () {
+                const valore = $("#txtInput").val();
+                if (valore) {
+                    aggiungiElemento(valore);
+                    $("#txtInput").val("").focus();
+                }
+            });
+
+            $("#btnReset").on("click", function () {
+                $("#game-board").empty();
+                contatore = 0;
+            });
+
+            // Funzioni
+            function aggiungiElemento(testo) {
+                contatore++;
+                const $item = $("<div></div>")
+                    .addClass("grid-item")
+                    .text(testo)
+                    .hide(); // Nascondi per l'effetto fadeIn
+
+                // Evento su elemento dinamico
+                $item.on("click", function () {
+                    $(this).toggleClass("active");
+                });
+
+                $("#game-board").append($item);
+                $item.fadeIn(400);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,309 @@
+/* Global Styles */
+:root {
+    --primary-color: #1e3c72;
+    --secondary-color: #2a5298;
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000000;
+    border-radius: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand,
+.nav-link {
+    color: #000000 !important;
+}
+
+.navbar-brand {
+    cursor: pointer;
+}
+
+/* Navbar for Hobby Page */
+.navbar-hobby {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.navbar-hobby .navbar-brand,
+.navbar-hobby .nav-link {
+    color: #ffffff !important;
+}
+
+/* Header Section for Hobby Page */
+.intestazione {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+}
+
+.intestazione h1 {
+    font-size: 4rem;
+}
+
+.intestazione p {
+    font-size: 2.5rem;
+}
+
+.intestazione .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.titolo-passioni {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, black, gray);
+    color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Sezione contenuto */
+.sezione-contenuto {
+    padding: 2rem 0;
+}
+
+.sezione-contenuto.bg-chiaro {
+    background-color: var(--light-bg);
+    color: #000000;
+}
+
+/* Card styles */
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000000;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+/* Video Card */
+.card video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    padding: 1.5rem 0;
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer .list-inline-item {
+    margin: 0 10px;
+}
+
+.footer .link-social {
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #333333;
+    color: #ffffff;
+    margin-right: 1rem;
+    transition: background-color 0.3s;
+}
+
+.footer .link-social:hover {
+    background-color: #555555;
+}
+
+/* Button Hover Effect */
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation classes for content */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+}
+
+.slide-in-left {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.slide-in-left.show {
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.slide-in-right.show {
+    transform: translateX(0);
+}
+
+/* Specific Styling for the Hobby Page */
+#motogp .card {
+    margin-bottom: 20px;
+}
+
+#motogp .titolo-passioni {
+    padding-top: 5%;
+}
+
+#passioni .card {
+    margin-bottom: 30px;
+}
+
+#passioni .card-body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+#motogp h2,
+#passioni h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#motogp h4,
+#passioni h5 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#motogp p,
+#passioni p {
+    font-size: 1rem;
+    color: #333333;
+}
+
+.move-up {
+    top: -10%;
+    /* Modifica questo valore per spostarla più in alto o più in basso */
+}
+
+/* Stile per la modale */
+.modal-content {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    background-color: #fff;
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #0056b3;
+}
+
+.modal-header .close {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.modal-body {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.modal-body img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.modal-body p {
+    margin-top: 10px;
+}
+
+.modal-dialog {
+    max-width: 500px;
+}
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Bottone con effetto al passaggio del mouse */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.custom-section-height {
+    height: 58vh;
+}
+.text-height{
+    padding-top: 10%;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility: Tabella Dinamica</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .controls {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        input {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            width: 80px;
+        }
+
+        button {
+            padding: 0.6rem 1.2rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        #container {
+            width: 100%;
+            max-width: 800px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+
+        tr:hover td {
+            background-color: #e2e8f0;
+            cursor: pointer;
+        }
+
+        .selected {
+            background-color: #c7d2fe !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="controls">
+        <div class="input-group">
+            <label for="rows">Righe:</label>
+            <input type="number" id="rows" value="3" min="1">
+        </div>
+        <div class="input-group">
+            <label for="cols">Colonne:</label>
+            <input type="number" id="cols" value="3" min="1">
+        </div>
+        <button id="btnCreate">Crea Tabella</button>
+    </div>
+
+    <div id="container">
+        <!-- La tabella verrà generata qui -->
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Click sul bottone per creare la tabella
+            $("#btnCreate").on("click", function () {
+                const r = $("#rows").val();
+                const c = $("#cols").val();
+                creaTabella(r, c);
+            });
+
+            function creaTabella(righe, colonne) {
+                const $container = $("#container");
+                $container.empty(); // Pulisce il contenitore
+
+                const $table = $("<table></table>");
+
+                // Crea Header
+                const $thead = $("<thead></thead>");
+                const $headerRow = $("<tr></tr>");
+                for (let j = 0; j < colonne; j++) {
+                    $headerRow.append(`<th>Col ${j + 1}</th>`);
+                }
+                $thead.append($headerRow);
+                $table.append($thead);
+
+                // Crea Body
+                const $tbody = $("<tbody></tbody>");
+                for (let i = 0; i < righe; i++) {
+                    const $row = $("<tr></tr>");
+                    for (let j = 0; j < colonne; j++) {
+                        // Creazione cella con contenuto dinamico
+                        const $td = $("<td></td>").text(`R${i + 1} C${j + 1}`);
+
+                        // Esempio: click sulla cella
+                        $td.on("click", function () {
+                            $(this).toggleClass("selected");
+                            console.log(`Cliccato: ${$(this).text()}`);
+                        });
+
+                        $row.append($td);
+                    }
+                    $tbody.append($row);
+                }
+                $table.append($tbody);
+
+                // Aggiunge la tabella al DOM
+                $container.append($table);
+            }
+
+            // Inizializzazione di default
+            creaTabella(3, 3);
+        });
+    </script>
+</body>
+
+</html>

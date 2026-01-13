@@ -1,0 +1,51 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+h1, h3 {
+  margin: 10px 0;
+}
+
+p {
+  margin: 0;
+}
+
+#student-area, .generate, .play, .results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.play > input, .results > p:first-child {
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#txt-secret-number {
+  display: none;
+}
+
+#test-area {
+  padding: 15px;
+}
+
+#mocha {
+  position: relative;
+}
+
+#mocha > #mocha-stats{
+  position: absolute;
+  top: -50px;
+  right: -50px;
+}

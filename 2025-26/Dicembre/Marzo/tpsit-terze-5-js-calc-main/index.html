@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Esercitazione 4 - Javascript</title>
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script src="js/script.js" defer></script>
+
+  <!-- These are for testing module, DO NOT TOUCH -->
+  <link href="css/style.test.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
+  <!-- end testing module -->
+</head>
+
+<body>
+  <section id="student-area">
+    <header>
+      <h1> CALCOLATRICE </h1>
+    </header>
+    <main>
+      <div>
+        <input type="text" value="0" id="txt-display" readonly />
+        <br />
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="operation">/</button>
+        <br />
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="operation">*</button>
+        <br />
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="operation">-</button>
+        <br />
+        <button class="number">0</button>
+        <button class="number">.</button>
+        <button class="operation">C</button>
+        <button class="operation">+</button>
+        <br />
+        <button class="operation result">=</button>
+      </div>
+    </main>
+    <footer>
+      <button id="tests-executor-btn">Esegui tests</button>
+    </footer>
+  </section>
+
+  <!-- Tests made by the professor, DO NOT TOUCH -->
+  <section id="test-area">
+    <h2>Test reporter</h2>
+    <div id="mocha"></div>
+  </section>
+  <script src="js/script.test.js"></script>
+  <!-- end testing module -->
+</body>
+
+</html>
