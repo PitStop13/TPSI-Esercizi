@@ -47,11 +47,13 @@ $(document).ready(function () {
 
             if ($(this).hasClass("active")) {
                 $(this).removeClass("active");
-                $(this).addClass("hit");
+                //$(this).addClass("hit");
+                $(this).animate({ "padding": "20px" }, 50)
+                    .animate({ "padding": "10px" }, 50);
 
-                setTimeout(() => {
-                    $(this).removeClass("hit");
-                }, 100);
+                // setTimeout(() => {
+                //     $(this).removeClass("hit");
+                // }, 100);
                 let punti = $("#punti").text();
                 punti++;
                 $("#punti").text(punti);
