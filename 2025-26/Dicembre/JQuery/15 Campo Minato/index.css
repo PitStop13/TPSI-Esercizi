@@ -1,0 +1,107 @@
+:root {
+    --bg-color: #f0f2f5;
+    --cell-color: #bdc3c7;
+    --cell-hover: #abb2b9;
+    --cell-revealed: #ecf0f1;
+    --bomb-color: #e74c3c;
+    --flag-color: #f1c40f;
+    --border-color: #7f8c8d;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#game-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+#stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#grid-wrapper {
+    display: grid;
+    gap: 2px;
+    background-color: var(--border-color);
+    border: 2px solid var(--border-color);
+    margin: 0 auto 20px;
+    user-select: none; /* Impedisce la selezione del testo */
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: var(--cell-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.cell:hover:not(.revealed):not(.flagged) {
+    background-color: var(--cell-hover);
+}
+
+.cell.revealed {
+    background-color: var(--cell-revealed);
+    cursor: default;
+}
+
+.cell.bomb {
+    background-color: var(--bomb-color);
+}
+
+.cell.flagged::after {
+    content: "🚩";
+}
+
+.cell.bomb.revealed::after {
+    content: "💣";
+}
+
+/* Colori numeri */
+.n-1 { color: #2980b9; }
+.n-2 { color: #27ae60; }
+.n-3 { color: #e67e22; }
+.n-4 { color: #8e44ad; }
+.n-5 { color: #c0392b; }
+.n-6 { color: #16a085; }
+.n-7 { color: #2c3e50; }
+.n-8 { color: #7f8c8d; }
+
+#reset-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#reset-btn:hover {
+    background-color: #2980b9;
+}
