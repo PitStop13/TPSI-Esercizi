@@ -5,7 +5,7 @@ Per favore, scrivete le canzoni seguendo rigorosamente lo schema di formattazion
 ### 📝 Regole del Metodo
 1. **Virgolette:** Ogni riga deve iniziare e finire con le virgolette (`" "`).
 2. **Punteggiatura:** Ogni riga deve terminare con una virgola (`,`) fuori o dentro le virgolette secondo l'uso scelto.
-3. **Spaziatura:** Inserire una riga vuota tra i blocchi di testo per separare le strofe.
+3. **Spaziatura:** Inserire una riga vuota (`""`) tra i blocchi di testo per separare le strofe.
 
 ---
 
