@@ -22,21 +22,21 @@ $(document).ready(function () {
 
     $("<div>").prop("id", "selezione").appendTo("body");
     $("#selezione").append($("<h4>").prop("id", "0").text("Seleziona Operazione"));
-    $("#selezione").append($("<h4>").prop("id", "1").text("aggiungi pacco a scaffale A"));
-    $("#selezione").append($("<h4>").prop("id", "2").text("aggiungi pacco a scaffale B"));
-    $("#selezione").append($("<h4>").prop("id", "3").text("Sposta Ultimo pacco da A a B"));
-    $("#selezione").append($("<h4>").prop("id", "4").text("Sposta Ultimo pacco da B a A"));
-    $("#selezione").append($("<h4>").prop("id", "5").text("Inserisci pacco in testa a A"));
-    $("#selezione").append($("<h4>").prop("id", "6").text("Inserisci pacco dopo il primo B"));
-    $("#selezione").append($("<h4>").prop("id", "7").text("Duplica pacchi scaffale A"));
-    $("#selezione").append($("<h4>").prop("id", "8").text("Duplica pacchi scaffale B"));
-    $("#selezione").append($("<h4>").prop("id", "9").text("Evidenzia pacchi PARI"));
-    $("#selezione").append($("<h4>").prop("id", "10").text("Evidenzia pacchi DISPARI"));
-    $("#selezione").append($("<h4>").prop("id", "11").text("Svuota scaffale A"));
-    $("#selezione").append($("<h4>").prop("id", "12").text("Svuota scaffale B"));
-    $("#selezione").append($("<h4>").prop("id", "13").text("Conta pacchi totali"));
-    $("#selezione").append($("<h4>").prop("id", "14").text("Ordina pacchi scaffale A"));
-    $("#selezione").append($("<h4>").prop("id", "15").text("Ordina pacchi scaffale B"));
+    $("#selezione").append($("<button>").prop("id", "1").text("aggiungi pacco a scaffale A"));
+    $("#selezione").append($("<button>").prop("id", "2").text("aggiungi pacco a scaffale B"));
+    $("#selezione").append($("<button>").prop("id", "3").text("Sposta Ultimo pacco da A a B"));
+    $("#selezione").append($("<button>").prop("id", "4").text("Sposta Ultimo pacco da B a A"));
+    $("#selezione").append($("<button>").prop("id", "5").text("Inserisci pacco in testa a A"));
+    $("#selezione").append($("<button>").prop("id", "6").text("Inserisci pacco dopo il primo B"));
+    $("#selezione").append($("<button>").prop("id", "7").text("Duplica pacchi scaffale A"));
+    $("#selezione").append($("<button>").prop("id", "8").text("Duplica pacchi scaffale B"));
+    $("#selezione").append($("<button>").prop("id", "9").text("Evidenzia pacchi PARI"));
+    $("#selezione").append($("<button>").prop("id", "10").text("Evidenzia pacchi DISPARI"));
+    $("#selezione").append($("<button>").prop("id", "11").text("Svuota scaffale A"));
+    $("#selezione").append($("<button>").prop("id", "12").text("Svuota scaffale B"));
+    $("#selezione").append($("<button>").prop("id", "13").text("Conta pacchi totali"));
+    $("#selezione").append($("<button>").prop("id", "14").text("Ordina pacchi scaffale A"));
+    $("#selezione").append($("<button>").prop("id", "15").text("Ordina pacchi scaffale B"));
 
     //Creo gli scaffali
     let cont = 0;
@@ -53,32 +53,37 @@ $(document).ready(function () {
         $("#scaffale2").append($("<div>").addClass("pacco").text("PK-" + cont));
     }
 
-
     $("#1").on("click", function () {
         cont++
         $("#scaffale1").append($("<div>").addClass("pacco").text("PK-" + cont));
 
     })
+
     $("#2").on("click", function () {
         cont++
         $("#scaffale2").append($("<div>").addClass("pacco").text("PK-" + cont));
     })
+
     $("#3").on("click", function () {
         $("#scaffale2").prepend(nuovoDiv); // Mette all'inizio
         let temp = $("#scaffale1").children().last();
         $("#scaffale1").children().eq(0) = temp;
 
     })
+
     $("#4").on("click", function () {
         console.log("1")
     })
+
     $("#5").on("click", function () {
         cont++;
         $("#scaffale1").prepend($("<div>").addClass("pacco").text("PK-" + cont)); // Mette all'inizio
     })
+
     $("#6").on("click", function () {
         console.log("1")
     })
+
     $("#7").on("click", function () {
 
         let cont1 = $("#scaffale1").children().get();
@@ -90,6 +95,7 @@ $(document).ready(function () {
 
 
     })
+
     $("#8").on("click", function () {
         let cont2 = $("#scaffale2").children().get();
 
@@ -98,21 +104,27 @@ $(document).ready(function () {
             $("#scaffale2").append($("<div>").addClass("pacco").text("PK-" + cont));
         }
     })
+
     $("#9").on("click", function () {
         evidenzia('.pacco:nth-child(even)')
     })
+
     $("#10").on("click", function () {
         evidenzia('.pacco:nth-child(odd)')
     })
+
     $("#11").on("click", function () {
         $("#scaffale1").empty()
     })
+
     $("#12").on("click", function () {
         $("#scaffale2").empty()
     })
+
     $("#13").on("click", function () {
         alert("Numero di pacchi: " + cont);
     })
+
     $("#14").on("click", function () {
         let scaf1 = $("#scaffale1").children().get()
 
@@ -122,6 +134,7 @@ $(document).ready(function () {
 
         $("#scaffale1").empty().append(scaf1);
     })
+
     $("#15").on("click", function () {
         let scaf2 = $("#scaffale2").children().get()
 
@@ -139,14 +152,8 @@ $(document).ready(function () {
 
     }
 
-
-
-
-
     //Provo a recuperare il value
-    //onChange
-
-    // $("#selezione").get().onchange(function(){
+    // $("#selezione").on("change",function(){
     //     console.log($(this).val());
     // });
 
