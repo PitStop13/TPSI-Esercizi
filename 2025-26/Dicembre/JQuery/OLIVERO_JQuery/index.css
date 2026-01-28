@@ -1,0 +1,112 @@
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f4f7f6; 
+    padding: 20px;
+    color: #333;
+}
+
+#Titolo { 
+    color: #2c3e50; 
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#selezione-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#selezione-container h3 {
+    margin-top: 0;
+    color: #34495e;
+    font-size: 1.2rem;
+}
+
+#selezione {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #e0e6ed;
+    width: 100%;
+    cursor: pointer;
+    background-color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+}
+
+#selezione:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+#area {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.scaffale {
+    background: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 25px;
+    width: 300px;
+    min-height: 450px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.3s;
+}
+
+.scaffale:hover {
+    transform: translateY(-5px);
+}
+
+.scaffale h3 {
+    text-align: center;
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 2px solid #f0f3f5;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+}
+
+.pacco {
+    height: 48px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    font-weight: 600;
+    text-align: center;
+    line-height: 48px;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    user-select: none;
+}
+
+.pacco:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.pacco.highlight {
+    border: 3px solid #f1c40f !important;
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.5) !important;
+    transform: scale(1.02);
+}
