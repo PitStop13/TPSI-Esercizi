@@ -1,0 +1,5 @@
+npm install -g json-server
+
+C:\Users\p.olivero.3584\AppData\Roaming\npm
+
+json-server --port 3000 people.json
