@@ -19,7 +19,7 @@ if errorlevel 1 (
 set "TARGET=C:\Users\p.olivero.3584\AppData\Roaming\npm"
 
 echo Copio people.json in %TARGET% ...
-copy /Y "%~dp0people.json" "%TARGET%"
+copy /Y "%~dp0db.json" "%TARGET%"
 if errorlevel 1 (
   echo ERRORE: copia fallita (controlla permessi/percorso).
   pause

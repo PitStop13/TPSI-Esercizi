@@ -1,4 +1,20 @@
+"use strict"
 const URL = "https://api.openbrewerydb.org/v1/breweries";
+
+let chartOptions = {
+    type : "polarArea", //doughnut = ciambella, radar = radar, bar = barre, ...per altro cerco su charjs per altri o documentazione
+    data : {
+        labels : [],
+        datasets : [{
+            label : "Risultati 2025-26", //titolo del grafico
+            data:[12,9,37], //valori da assegnare per ogni singola barra
+            backgroundColor : ["red","blu","green"],
+            borderColor : ["black","yellow","red"],
+            borderWidth : 1 //di default è due poi io posso scegliere se aumentare o cosa fare
+
+        }]
+    } 
+};
 
 $(document).ready(function () {
     let container = $("#wrapper");
@@ -54,6 +70,21 @@ $(document).ready(function () {
         });
     }
 
+
+    let canvas1 = $("#canvas1");
+    let chart1 = new Chart(canvas1,chartOptions);
+
+    let canvas2 = $("#canvas2");
+    let chart2 = new Chart(canvas2,chartOptions);
+
+    let canvas3 = $("#canvas3");
+    let chart3 = new Chart(canvas3,chartOptions);
+
+    let canvas4 = $("#canvas4");
+    let chart4 = new Chart(canvas4,chartOptions);
+
+    let canvas5 = $("#canvas5");
+    let chart5 = new Chart(canvas5,chartOptions);
 });
 
 function setupUI(data, tabella, select) {
