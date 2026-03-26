@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Schede palestra</title>
+    <link rel="stylesheet" href="BOOTSTRAP/CSS/bootstrap.css">
+    <script src="COGNOME_VerificaAjax/jquery.js"></script>
+    <script src="BOOTSTRAP/JS/bootstrap.bundle.min.js"></script>
+    <script src="COGNOME_VerificaAjax/chart.js"></script>
+
+    <script src="libreria.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <h1 align="center">Schede palestra di COGNOME NOME</h1>
+    <div class="container">
+        <div class='row'>
+            <div class='col-sm-2 col-lg-4'> </div>
+            <div class='col-sm-8 col-lg-4'>
+                <div class="form-group">
+                    <label for="lstRound">
+                        Seleziona l'atleta che ti interessa:
+                    </label>
+                    <select class="form-control" id="lstAtleti">
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col-lg-1 col-xl-2'> </div>
+            <div class='col-sm-12 col-lg-10 col-xl-8 table-responsive'>
+                <table class='table table-striped  table-sm'>
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class='col-lg-1 col-xl-2'> </div>
+        </div>
+
+        <canvas id="canvas1"></canvas>
+    </div>
+</body>
+
+</html>

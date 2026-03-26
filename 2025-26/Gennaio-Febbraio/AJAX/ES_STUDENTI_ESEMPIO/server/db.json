@@ -1,0 +1,12 @@
+{
+  "studenti": [
+    { "id": 1, "nome": "Filippo",  "cognome": "Rossi",    "classe": "3B", "voto": 8 },
+    { "id": 2, "nome": "Giulia",   "cognome": "Bianchi",  "classe": "4A", "voto": 9 },
+    { "id": 3, "nome": "Marco",    "cognome": "Verdi",    "classe": "3B", "voto": 6 },
+    { "id": 4, "nome": "Sara",     "cognome": "Neri",     "classe": "5A", "voto": 7 },
+    { "id": 5, "nome": "Luca",     "cognome": "Ferrari",  "classe": "3B", "voto": 9 },
+    { "id": 6, "nome": "Chiara",   "cognome": "Esposito", "classe": "4A", "voto": 6 },
+    { "id": 7, "nome": "Andrea",   "cognome": "Romano",   "classe": "5A", "voto": 8 },
+    { "id": 8, "nome": "Martina",  "cognome": "Colombo",  "classe": "3B", "voto": 7 }
+  ]
+}
