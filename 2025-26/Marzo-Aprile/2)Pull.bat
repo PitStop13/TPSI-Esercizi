@@ -3,7 +3,7 @@ title Pull da XAMPP
 setlocal enabledelayedexpansion
 
 set "found="
-set "target_path=\TPSI\2025-26\Marzo\2025_26\4EINF"
+set "target_path=\TPSI\2025-26\Marzo-Aprile\2025_26\4EINF"
 set "xampp_sorg=C:\xampp\htdocs\2025_26\4EINF"
 
 for %%D in (D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
