@@ -3,7 +3,7 @@
         DriverID INT PRIMARY KEY,
         Name VARCHAR(100),
         Nationality VARCHAR(50),
-        DateOfBirth DATE,
+             DATE,
         Number INT
     );
 
