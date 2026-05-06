@@ -3,10 +3,12 @@ session_start(); //PHP crea un sessionID e lo salva nel browser come cookie
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "Uso POST";
-    if (!isset($_SESSION["prenotazioni"][$_POST["evento"]])) {
-        $_SESSION["prenotazioni"][$_POST["evento"]] = 0;
+    $evento = $_POST["evento"];
+    $num = intval($_POST["num"]);
+    if (!isset($_SESSION["prenotazioni"][ $evento ])) {
+        $_SESSION["prenotazioni"][ $evento ] = 0;
     }
-    $_SESSION["prenotazioni"][$_POST["evento"]] += $_POST["num"]; //salva i dati del modulo in una variabile di sessione
+    $_SESSION["prenotazioni"][ $evento ] += $num; //salva i dati del modulo in una variabile di sessione
 
     //Oppure scrivo così...
     // $_prenotazioni = $_SESSION["prenotazioni"];
@@ -16,10 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     echo "Uso GET";
-    if (!isset($_SESSION["prenotazioni"][$_GET["evento"]])) {
-        $_SESSION["prenotazioni"][$_GET["evento"]] = 0;
+    $evento = $_GET["evento"];
+    $num = intval($_GET["num"]);
+    if (!isset($_SESSION["prenotazioni"][ $evento ])) {
+        $_SESSION["prenotazioni"][ $evento ] = 0;
     }
-    $_SESSION["prenotazioni"][$_GET["evento"]] += $_GET["num"]; //salva i dati del modulo in una variabile di sessione
+    $_SESSION["prenotazioni"][ $evento ] += $num; //salva i dati del modulo in una variabile di sessione
 }
 
 ?>

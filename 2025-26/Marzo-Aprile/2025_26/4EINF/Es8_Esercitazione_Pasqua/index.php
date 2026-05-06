@@ -54,9 +54,7 @@
         <?= stampaInizialiMaiuscole("Come quando fuori piove") ?>
     </h2>
 
-    <h2 style="color: <?= getColoreRandom() ?>;">Sostituisci "Filippo" con "Francesco" nella frase "Francesco è andato a
-        giocare a calcio" : <?= sostituisciStringa("Francesco", "Filippo", "Francesco è andato a giocare a calcio") ?>
-    </h2>
+    <h2 style="color: <?= getColoreRandom() ?>;">Sostituisci "Filippo" con "Francesco" nella frase "Filippo è andato a giocare a calcio": <?= sostituisciStringa('Filippo', 'Francesco', 'Filippo è andato a giocare a calcio') ?></h2>
 
     <h2 style="color: <?= getColoreRandom() ?>;">Dalla stringa "I topi non avevano nipoti" estrarre una sottostringa a
         partire dalla decima posizione: <?= estraiCaratteri("I topi non avevano nipoti", 10) ?></h2>

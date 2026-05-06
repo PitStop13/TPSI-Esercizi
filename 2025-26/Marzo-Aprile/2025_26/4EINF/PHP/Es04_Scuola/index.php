@@ -15,7 +15,7 @@ if ($con->connect_errno) {
 <body>
 <div class="container">
     <div class="header">
-        <h1>🏫 Gestione Scuola</h1>
+        <h1>Gestione Scuola</h1>
         <p>Esercizio PHP4EINF - Visualizzazione Tabelle</p>
     </div>
 
@@ -64,6 +64,7 @@ if ($con->connect_errno) {
                             echo "<td>" . $row['anni_esperienza'] . "</td>";
                             echo "</tr>";
                         }
+                        
                     }
                     ?>
                 </tbody>

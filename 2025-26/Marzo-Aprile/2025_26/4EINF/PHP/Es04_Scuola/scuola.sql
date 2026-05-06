@@ -1,6 +1,6 @@
 -- Database per gestione Scuola (PHP4EINF_SCUOLA)
-CREATE DATABASE IF NOT EXISTS `scuola`;
-USE `scuola`;
+CREATE DATABASE IF NOT EXISTS `4e_scuola`;
+USE `4e_scuola`;
 
 -- ===================== TABELLA INSEGNANTI =====================
 CREATE TABLE `insegnanti` (

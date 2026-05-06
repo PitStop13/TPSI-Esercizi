@@ -21,7 +21,6 @@
             <div class="col-8">
                 <h3>Gare</h3>
                 <?php
-                session_start();
                 
                 //gare
                 $con = mysqli_connect("localhost", "root", "", "4e_f1(new)");
@@ -57,12 +56,9 @@
                 while ($row = $rs->fetch_assoc()) {
                     $raceId = $row["RaceID"];
                     $name = $row["Name"];
-                    if($_SESSION["gare"] == $raceId)
-                    {
+                    if (isset($_SESSION["gare"]) && $_SESSION["gare"] == $raceId) {
                         $str .= "<option value ='$raceId' selected>$name</option>";
-                    }
-                    else{
-                        
+                    } else {
                         $str .= "<option value ='$raceId'>$name</option>";
                     }
 
@@ -73,8 +69,8 @@
                 echo $str;
 
                 if (isset($_POST["btnGare"]) && $_POST["gare"] != -1 || isset($_SESSION["gare"]) && $_SESSION["gare"] != -1) {
-                    $race = isset($_POST["gare"]) ? $_POST["gare"] : $_SESSION["gare"];
-                    $sql = "SELECT races.Name as NomeGara,races.Date as DataGara,races.Circuit as NomeCircuito,races.Country as NazioneCircuito,teams.Name as Team,drivers.Name as Pilota,results.Points as Punteggio
+                        $race = isset($_POST["gare"]) ? intval($_POST["gare"]) : intval($_SESSION["gare"]);
+                        $sql = "SELECT races.Name as NomeGara,races.Date as DataGara,races.Circuit as NomeCircuito,races.Country as NazioneCircuito,teams.Name as Team,drivers.Name as Pilota,results.Points as Punteggio
                             FROM drivers,teams,races,results
                             WHERE results.DriverID = drivers.DriverID AND results.TeamID = teams.TeamID AND results.RaceID = races.RaceID AND results.RaceID = $race;";
 
@@ -168,7 +164,7 @@
                 echo $str;
 
                 if (isset($_POST["btnTeams"]) && $_POST["teams"] != -1) {
-                    $team = $_POST["teams"];
+                    $team = intval($_POST["teams"]);
                     $sql = "SELECT DISTINCT teams.Name as NomeTeam,drivers.Name as Pilota,drivers.Nationality as Nazionalità,drivers.DateOfBirth as DataNascita
                             FROM drivers,teams,results
                             WHERE results.DriverID = drivers.DriverID AND results.TeamID = teams.TeamID AND results.TeamID = $team;";
@@ -214,8 +210,8 @@
 
                 // 3: Query SQL - Aggiunto ORDER BY per garantire che le risposte della stessa domanda siano vicine
                 $sql = "SELECT drivers.Name as Pilota, SUM(results.Points) as PunteggioTotale
-                        FROM drivers,results
-                        WHERE results.DriverID = drivers.DriverID
+                        FROM results
+                        JOIN drivers ON results.DriverID = drivers.DriverID
                         GROUP BY drivers.Name
                         ORDER BY PunteggioTotale DESC;";
 

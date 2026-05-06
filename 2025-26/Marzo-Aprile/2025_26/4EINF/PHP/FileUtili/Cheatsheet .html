@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📋 Cheatsheet PHP + SQL – 4EINF</title>
+<style>
+  :root {
+    --bg:        #0f1117;
+    --surface:   #1a1d27;
+    --border:    #2e3245;
+    --accent:    #7c6af7;
+    --green:     #3ecf8e;
+    --yellow:    #f0c040;
+    --red:       #f06060;
+    --blue:      #60aaff;
+    --orange:    #f09050;
+    --text:      #dde1f0;
+    --muted:     #7a80a0;
+    --code-bg:   #12141e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* ── TOP BAR ── */
+  header {
+    background: var(--surface);
+    border-bottom: 2px solid var(--accent);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header h1 { font-size: 18px; color: var(--accent); }
+  header small { color: var(--muted); font-size: 12px; }
+
+  /* ── NAV PILLS ── */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    position: sticky;
+    top: 50px;
+    z-index: 99;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 12px;
+    transition: all .15s;
+  }
+  nav a:hover { color: var(--text); border-color: var(--accent); }
+
+  /* ── LAYOUT ── */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .full { grid-column: 1 / -1; }
+
+  /* ── SECTION CARD ── */
+  section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  section h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  section .body { padding: 12px 14px; }
+
+  /* ── COLORI INTESTAZIONE PER CATEGORIA ── */
+  .cat-php   h2 { background: #1e1440; color: var(--accent); }
+  .cat-sql   h2 { background: #0d2010; color: var(--green);  }
+  .cat-form  h2 { background: #251500; color: var(--yellow); }
+  .cat-tip   h2 { background: #1a0d0d; color: var(--red);    }
+  .cat-boot  h2 { background: #0a1830; color: var(--blue);   }
+
+  /* ── CODE BLOCK ── */
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    margin: 8px 0 4px;
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+  code { font-family: inherit; }
+
+  /* ── SYNTAX COLORS ── */
+  .kw   { color: #c792ea; }   /* keyword: if, while, foreach... */
+  .fn   { color: var(--blue); }   /* funzione: mysqli_connect, echo... */
+  .str  { color: var(--green); }  /* stringa: "testo" */
+  .var  { color: #f78c6c; }       /* variabile: $con, $row */
+  .cmt  { color: var(--muted); font-style: italic; } /* commento */
+  .sql  { color: var(--yellow); } /* parole SQL: SELECT, FROM, WHERE */
+  .num  { color: var(--orange); } /* numeri */
+  .tag  { color: var(--red); }    /* tag HTML */
+  .attr { color: var(--yellow); } /* attributi HTML */
+
+  /* ── LABEL PILL ── */
+  .pill {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .pill-g  { background: #0d2d1a; color: var(--green);  border: 1px solid var(--green);  }
+  .pill-y  { background: #2d2200; color: var(--yellow); border: 1px solid var(--yellow); }
+  .pill-r  { background: #2d0d0d; color: var(--red);    border: 1px solid var(--red);    }
+  .pill-b  { background: #0d1e3a; color: var(--blue);   border: 1px solid var(--blue);   }
+  .pill-p  { background: #1e1040; color: var(--accent); border: 1px solid var(--accent); }
+
+  /* ── NOTE ── */
+  .note {
+    background: #1e1040;
+    border-left: 3px solid var(--accent);
+    padding: 7px 10px;
+    border-radius: 0 4px 4px 0;
+    margin: 8px 0;
+    font-size: 12px;
+    color: #b8b0f0;
+  }
+  .warn {
+    background: #2d1800;
+    border-left: 3px solid var(--yellow);
+    padding: 7px 10px;
+    border-radius: 0 4px 4px 0;
+    margin: 8px 0;
+    font-size: 12px;
+    color: #d4b060;
+  }
+
+  p.desc { color: var(--muted); font-size: 12px; margin: 4px 0 2px; }
+
+  /* ── PRINT ── */
+  @media print {
+    header, nav { position: static; }
+    body { background: white; color: black; font-size: 11px; }
+    pre  { background: #f4f4f4; border: 1px solid #ccc; }
+    section { border: 1px solid #ccc; break-inside: avoid; }
+    main { grid-template-columns: 1fr 1fr; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📋 Cheatsheet PHP + SQL — Verifica TPSIT 4EINF</h1>
+  <small>Tieni aperto nel browser durante la verifica · Ctrl+F per cercare</small>
+</header>
+
+<nav>
+  <a href="#struttura">Struttura PHP</a>
+  <a href="#connessione">Connessione DB</a>
+  <a href="#select">SELECT</a>
+  <a href="#join">JOIN</a>
+  <a href="#groupby">GROUP BY / COUNT</a>
+  <a href="#create">CREATE TABLE</a>
+  <a href="#insert">INSERT</a>
+  <a href="#update">UPDATE / DELETE</a>
+  <a href="#form">Form GET/POST</a>
+  <a href="#isset">isset / $_GET / $_POST</a>
+  <a href="#array">Array & foreach</a>
+  <a href="#ternario">Operatore ternario</a>
+  <a href="#sicurezza">Sicurezza</a>
+  <a href="#redirect">Redirect</a>
+  <a href="#boolean">Booleani dal DB</a>
+  <a href="#bootstrap">Bootstrap</a>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  SEZIONE: STRUTTURA BASE PHP                               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="full cat-php" id="struttura">
+  <h2>🏗 Struttura base di una pagina PHP</h2>
+  <div class="body">
+    <div class="note">Il PHP si inserisce dentro tag <code>&lt;?php ... ?&gt;</code> — il resto è HTML normale. <code>&lt;?= $var ?&gt;</code> è scorciatoia per <code>&lt;?php echo $var; ?&gt;</code></div>
+    <pre><code><span class="cmt">// Questo blocco PHP viene eseguito PRIMA di inviare qualsiasi HTML</span>
+<span class="kw">&lt;?php</span>
+  <span class="var">$messaggio</span> = <span class="str">"Ciao!"</span>;
+<span class="kw">?&gt;</span>
+
+<span class="tag">&lt;!DOCTYPE html&gt;
+&lt;html</span> <span class="attr">lang</span>=<span class="str">"it"</span><span class="tag">&gt;
+&lt;head&gt;
+  &lt;meta</span> <span class="attr">charset</span>=<span class="str">"UTF-8"</span><span class="tag">&gt;
+  &lt;link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"bootstrap.css"</span><span class="tag">&gt;
+  &lt;title&gt;</span>Titolo<span class="tag">&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;</span>
+
+  <span class="cmt">&lt;!-- Stampo variabile PHP nell'HTML --&gt;</span>
+  <span class="tag">&lt;h1&gt;</span><span class="kw">&lt;?=</span> <span class="var">$messaggio</span> <span class="kw">?&gt;</span><span class="tag">&lt;/h1&gt;</span>
+
+  <span class="cmt">&lt;?php
+  // Posso mettere PHP ovunque nell'HTML
+  if ($condizione) {
+      echo "&lt;p&gt;Vero!&lt;/p&gt;";
+  }
+  ?&gt;</span>
+
+<span class="tag">&lt;/body&gt;
+&lt;/html&gt;</span></code></pre>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  SEZIONE: CONNESSIONE AL DATABASE                          -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="cat-php" id="connessione">
+  <h2>🔌 Connessione al Database</h2>
+  <div class="body">
+    <p class="desc">Da fare SEMPRE come primo passo — senza connessione non funziona nulla.</p>
+    <pre><code><span class="cmt">// mysqli_connect(host, utente, password, database)</span>
+<span class="var">$con</span> = <span class="fn">mysqli_connect</span>(<span class="str">"localhost"</span>, <span class="str">"root"</span>, <span class="str">""</span>, <span class="str">"nome_database"</span>);
+
+<span class="cmt">// Controllo che la connessione sia riuscita</span>
+<span class="kw">if</span> (<span class="var">$con</span>->connect_errno) {
+    <span class="fn">die</span>(<span class="str">"Connessione fallita: "</span> . <span class="var">$con</span>->connect_errno
+        . <span class="str">" - "</span> . <span class="var">$con</span>->connect_error);
+}
+
+<span class="cmt">// ... tutta la logica della pagina ...
+
+// Alla fine: chiudo sempre la connessione</span>
+<span class="var">$con</span>-><span class="fn">close</span>();</code></pre>
+    <div class="warn">⚠ Con XAMPP: host=<code>"localhost"</code>, utente=<code>"root"</code>, password=<code>""</code> (vuota)</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  SEZIONE: SELECT                                           -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="cat-sql" id="select">
+  <h2>📊 Query SELECT — Leggere dati</h2>
+  <div class="body">
+    <pre><code><span class="cmt">// ── SELECT base: prende tutte le righe ──</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT</span> nome, cognome, email <span class="sql">FROM</span> utenti"</span>;
+<span class="var">$rs</span>  = <span class="var">$con</span>-><span class="fn">query</span>(<span class="var">$sql</span>);
+
+<span class="cmt">// Controllo esito query</span>
+<span class="kw">if</span> (!<span class="var">$rs</span>) {
+    <span class="fn">die</span>(<span class="str">"Query fallita: "</span> . <span class="var">$con</span>->errno . <span class="str">" - "</span> . <span class="var">$con</span>->error);
+}
+
+<span class="cmt">// Leggo riga per riga con fetch_assoc()
+// $row è un array: $row["nome"], $row["email"], ecc.</span>
+<span class="kw">while</span> (<span class="var">$row</span> = <span class="var">$rs</span>-><span class="fn">fetch_assoc</span>()) {
+    <span class="fn">echo</span> <span class="var">$row</span>[<span class="str">"nome"</span>] . <span class="str">" "</span> . <span class="var">$row</span>[<span class="str">"cognome"</span>] . <span class="str">"&lt;br&gt;"</span>;
+}
+
+<span class="cmt">// ── SELECT con WHERE: filtra per condizione ──</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT * FROM</span> utenti <span class="sql">WHERE</span> id = $id"</span>;
+
+<span class="cmt">// ── SELECT con ORDER BY: ordina risultati ──</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT * FROM</span> prodotti <span class="sql">ORDER BY</span> prezzo <span class="sql">DESC</span>"</span>;
+<span class="cmt">//  ASC = crescente (default) | DESC = decrescente</span>
+
+<span class="cmt">// ── SELECT singola riga (senza while) ──</span>
+<span class="var">$rs</span>  = <span class="var">$con</span>-><span class="fn">query</span>(<span class="str">"<span class="sql">SELECT * FROM</span> utenti <span class="sql">WHERE</span> id = $id"</span>);
+<span class="var">$row</span> = <span class="var">$rs</span>-><span class="fn">fetch_assoc</span>();  <span class="cmt">// una sola riga → no while</span>
+<span class="fn">echo</span> <span class="var">$row</span>[<span class="str">"nome"</span>];</code></pre>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  SEZIONE: JOIN                                             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="cat-sql" id="join">
+  <h2>🔗 JOIN — Unire due tabelle</h2>
+  <div class="body">
+    <div class="note">Usa JOIN quando i dati che ti servono sono divisi su due tabelle legate da una chiave esterna.</div>
+    <pre><code><span class="cmt">// Esempio: utenti (id_abbonamento) → abbonamenti (id)
+// JOIN "unisce" le righe in base alla colonna in comune</span>
+
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT</span> u.nome, u.cognome, u.email,
+                a.tipo, a.costo_mensile
+        <span class="sql">FROM</span> utenti u
+        <span class="sql">JOIN</span> abbonamenti a <span class="sql">ON</span> u.id_abbonamento = a.id"</span>;
+
+<span class="cmt">// u. e a. sono alias delle tabelle: evitano ambiguità
+// se entrambe le tabelle hanno una colonna "id"
+
+// ── JOIN con WHERE ──</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT</span> u.*, a.tipo, a.costo_mensile
+        <span class="sql">FROM</span> utenti u
+        <span class="sql">JOIN</span> abbonamenti a <span class="sql">ON</span> u.id_abbonamento = a.id
+        <span class="sql">WHERE</span> u.id = $id_utente"</span>;
+
+<span class="cmt">// ── JOIN con rinomina colonne (AS) ──
+// Utile quando due tabelle hanno colonne con lo stesso nome</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT</span>
+            u.id <span class="sql">AS</span> id_utente,
+            u.nome, u.cognome,
+            a.id <span class="sql">AS</span> id_abbonamento,
+            a.tipo
+        <span class="sql">FROM</span> utenti u
+        <span class="sql">JOIN</span> abbonamenti a <span class="sql">ON</span> u.id_abbonamento = a.id"</span>;</code></pre>
+  </div>
+</section>
+
+
+<!-- GROUP BY / COUNT -->
+<section class="cat-sql" id="groupby">
+  <h2>📈 GROUP BY, COUNT, HAVING</h2>
+  <div class="body">
+    <p class="desc">Usato per contare/raggruppare righe per categoria.</p>
+    <pre><code><span class="cmt">// COUNT(*): conta le righe per gruppo
+// GROUP BY: raggruppa per una colonna</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT</span> tipo, <span class="sql">COUNT</span>(*) <span class="sql">AS</span> totale
+        <span class="sql">FROM</span> abbonamenti a
+        <span class="sql">JOIN</span> utenti u <span class="sql">ON</span> a.id = u.id_abbonamento
+        <span class="sql">GROUP BY</span> tipo"</span>;
+<span class="cmt">// $row["totale"] = numero utenti per tipo piano
+
+// HAVING: come WHERE ma si applica DOPO il GROUP BY</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT</span> citta, <span class="sql">COUNT</span>(*) <span class="sql">AS</span> tot
+        <span class="sql">FROM</span> utenti
+        <span class="sql">GROUP BY</span> citta
+        <span class="sql">HAVING</span> tot > 2"</span>;
+<span class="cmt">// Restituisce solo le città con più di 2 utenti
+
+// MAX, MIN, SUM, AVG</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT MAX</span>(costo_mensile), <span class="sql">MIN</span>(costo_mensile),
+               <span class="sql">AVG</span>(costo_mensile)
+        <span class="sql">FROM</span> abbonamenti"</span>;</code></pre>
+  </div>
+</section>
+
+<!-- CREATE TABLE -->
+<section class="cat-sql" id="create">
+  <h2>🏗 SQL — CREATE TABLE</h2>
+  <div class="body">
+    <pre><code><span class="sql">CREATE DATABASE IF NOT EXISTS</span> nome_db
+    <span class="sql">CHARACTER SET</span> utf8mb4;
+
+<span class="sql">USE</span> nome_db;
+
+<span class="sql">DROP TABLE IF EXISTS</span> tabella_figlia;  <span class="cmt">-- elimina prima la figlia</span>
+<span class="sql">DROP TABLE IF EXISTS</span> tabella_padre;
+
+<span class="sql">CREATE TABLE</span> prodotti (
+    id          <span class="sql">INT UNSIGNED AUTO_INCREMENT PRIMARY KEY</span>,
+    nome        <span class="sql">VARCHAR</span>(<span class="num">100</span>) <span class="sql">NOT NULL</span>,
+    prezzo      <span class="sql">DECIMAL</span>(<span class="num">8</span>,<span class="num">2</span>)  <span class="sql">NOT NULL</span>,
+    descrizione <span class="sql">TEXT</span>,
+    attivo      <span class="sql">BOOLEAN NOT NULL DEFAULT TRUE</span>,
+    creato_il   <span class="sql">DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP</span>
+) <span class="sql">ENGINE</span>=InnoDB <span class="sql">DEFAULT CHARSET</span>=utf8mb4;
+
+<span class="cmt">-- Tabella FIGLIA con chiave esterna (FK)</span>
+<span class="sql">CREATE TABLE</span> ordini (
+    id          <span class="sql">INT UNSIGNED AUTO_INCREMENT PRIMARY KEY</span>,
+    id_prodotto <span class="sql">INT UNSIGNED NOT NULL</span>,
+    quantita    <span class="sql">INT UNSIGNED NOT NULL DEFAULT</span> <span class="num">1</span>,
+    <span class="sql">CONSTRAINT</span> fk_ordini_prodotti
+        <span class="sql">FOREIGN KEY</span> (id_prodotto) <span class="sql">REFERENCES</span> prodotti(id)
+        <span class="sql">ON UPDATE CASCADE ON DELETE RESTRICT</span>
+) <span class="sql">ENGINE</span>=InnoDB;</code></pre>
+    <div class="note">Tipi utili: <code>VARCHAR(n)</code> testo breve · <code>TEXT</code> testo lungo · <code>INT</code> intero · <code>DECIMAL(m,d)</code> decimale · <code>BOOLEAN</code> vero/falso · <code>DATE</code> data · <code>DATETIME</code> data+ora · <code>ENUM('a','b')</code> valori fissi</div>
+  </div>
+</section>
+
+<!-- INSERT -->
+<section class="cat-sql" id="insert">
+  <h2>➕ SQL — INSERT</h2>
+  <div class="body">
+    <pre><code><span class="cmt">-- Inserimento singola riga</span>
+<span class="sql">INSERT INTO</span> prodotti (nome, prezzo, descrizione)
+<span class="sql">VALUES</span> (<span class="str">'Maglietta'</span>, <span class="num">19.99</span>, <span class="str">'Cotone 100%'</span>);
+
+<span class="cmt">-- Inserimento multiplo (più righe in una query)</span>
+<span class="sql">INSERT INTO</span> prodotti (nome, prezzo)
+<span class="sql">VALUES</span>
+    (<span class="str">'Cappello'</span>, <span class="num">9.99</span>),
+    (<span class="str">'Cintura'</span>,  <span class="num">14.99</span>),
+    (<span class="str">'Borsa'</span>,    <span class="num">39.99</span>);</code></pre>
+  </div>
+</section>
+
+<!-- UPDATE / DELETE -->
+<section class="cat-sql" id="update">
+  <h2>✏️ SQL — UPDATE e DELETE</h2>
+  <div class="body">
+    <pre><code><span class="cmt">-- UPDATE: modifica righe esistenti</span>
+<span class="sql">UPDATE</span> prodotti
+<span class="sql">SET</span>   prezzo = <span class="num">24.99</span>, nome = <span class="str">'Maglietta Premium'</span>
+<span class="sql">WHERE</span> id = <span class="num">1</span>;
+
+<span class="cmt">-- DELETE: elimina righe</span>
+<span class="sql">DELETE FROM</span> prodotti <span class="sql">WHERE</span> id = <span class="num">5</span>;
+
+<span class="cmt">-- ⚠ ATTENZIONE: senza WHERE aggiorna/elimina TUTTO!</span></code></pre>
+    <div class="warn">⚠ Metti SEMPRE la <code>WHERE</code> in UPDATE e DELETE!</div>
+    <pre><code><span class="cmt">// Eseguire UPDATE/DELETE in PHP (no fetch_assoc, usano query diretta)</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">UPDATE</span> prodotti <span class="sql">SET</span> prezzo = <span class="num">24.99</span> <span class="sql">WHERE</span> id = $id"</span>;
+<span class="var">$ok</span>  = <span class="var">$con</span>-><span class="fn">query</span>(<span class="var">$sql</span>);
+<span class="kw">if</span> (!<span class="var">$ok</span>) { <span class="fn">die</span>(<span class="str">"Errore: "</span> . <span class="var">$con</span>->error); }
+<span class="fn">echo</span> <span class="str">"Righe modificate: "</span> . <span class="var">$con</span>->affected_rows;</code></pre>
+  </div>
+</section>
+
+<!-- FORM GET/POST -->
+<section class="cat-form" id="form">
+  <h2>📝 Form HTML — GET e POST</h2>
+  <div class="body">
+    <div class="note"><span class="pill pill-g">GET</span> I dati appaiono nell'URL (<code>?nome=Mario</code>) – usa per ricerche/filtri<br>
+    <span class="pill pill-r">POST</span> I dati non appaiono nell'URL – usa per invio dati sensibili/azioni</div>
+    <pre><code><span class="cmt">&lt;!-- FORM POST sulla stessa pagina (action="") --&gt;</span>
+<span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="str">""</span> <span class="attr">method</span>=<span class="str">"POST"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"text"</span> <span class="attr">name</span>=<span class="str">"username"</span> <span class="attr">placeholder</span>=<span class="str">"Nome"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;select</span> <span class="attr">name</span>=<span class="str">"tipo"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="str">"base"</span><span class="tag">&gt;</span>Base<span class="tag">&lt;/option&gt;</span>
+        <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="str">"premium"</span><span class="tag">&gt;</span>Premium<span class="tag">&lt;/option&gt;</span>
+    <span class="tag">&lt;/select&gt;</span>
+    <span class="cmt">&lt;!-- input hidden: non visibile, inviato col form --&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"hidden"</span> <span class="attr">name</span>=<span class="str">"azione"</span> <span class="attr">value</span>=<span class="str">"cerca"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="str">"submit"</span> <span class="attr">name</span>=<span class="str">"invia"</span> <span class="attr">value</span>=<span class="str">"1"</span><span class="tag">&gt;</span>Invia<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
+
+<span class="cmt">&lt;!-- FORM GET: passa parametri nell'URL --&gt;</span>
+<span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="str">"dettaglio.php"</span> <span class="attr">method</span>=<span class="str">"GET"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"hidden"</span> <span class="attr">name</span>=<span class="str">"id"</span> <span class="attr">value</span>=<span class="str">"5"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="str">"submit"</span><span class="tag">&gt;</span>Vai al dettaglio<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
+
+<span class="cmt">&lt;!-- Link con parametro GET nell'URL (senza form) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"dettaglio.php?id=&lt;?= $utente["id"] ?&gt;"</span><span class="tag">&gt;</span>Dettaglio<span class="tag">&lt;/a&gt;</span></code></pre>
+  </div>
+</section>
+
+
+<!-- isset / $_GET / $_POST -->
+<section class="cat-form" id="isset">
+  <h2>🔎 isset() — Controllare GET e POST</h2>
+  <div class="body">
+    <div class="note"><code>isset($var)</code> restituisce TRUE se la variabile esiste e non è NULL. Usalo SEMPRE prima di leggere <code>$_GET</code> o <code>$_POST</code>.</div>
+    <pre><code><span class="cmt">// ── Modalità GET/POST: schema tipico della verifica ──</span>
+<span class="kw">if</span> (!<span class="fn">isset</span>(<span class="var">$_POST</span>[<span class="str">"abbonati"</span>])) {
+    <span class="cmt">// Nessun POST → mostra home page</span>
+} <span class="kw">else</span> {
+    <span class="cmt">// POST ricevuto → mostra lista / elabora dati</span>
+}
+
+<span class="cmt">// ── Lettura sicura da GET ──</span>
+<span class="kw">if</span> (<span class="fn">isset</span>(<span class="var">$_GET</span>[<span class="str">"id"</span>])) {
+    <span class="var">$id</span> = <span class="fn">intval</span>(<span class="var">$_GET</span>[<span class="str">"id"</span>]);   <span class="cmt">// converto sempre in intero!</span>
+}
+
+<span class="cmt">// ── Lettura sicura da POST ──</span>
+<span class="kw">if</span> (<span class="fn">isset</span>(<span class="var">$_POST</span>[<span class="str">"username"</span>])) {
+    <span class="var">$nome</span> = <span class="fn">htmlspecialchars</span>(<span class="var">$_POST</span>[<span class="str">"username"</span>]); <span class="cmt">// sanificazione XSS</span>
+}
+
+<span class="cmt">// ── Valore di default se il parametro non c'è ──</span>
+<span class="var">$pagina</span> = <span class="fn">isset</span>(<span class="var">$_GET</span>[<span class="str">"p"</span>]) ? <span class="fn">intval</span>(<span class="var">$_GET</span>[<span class="str">"p"</span>]) : <span class="num">1</span>;
+
+<span class="cmt">// ── Controllare se un pulsante submit è stato premuto ──</span>
+<span class="kw">if</span> (<span class="fn">isset</span>(<span class="var">$_POST</span>[<span class="str">"cerca"</span>])) { <span class="cmt">// cerca = name del button</span>
+    <span class="cmt">// il pulsante "cerca" è stato premuto</span>
+}</code></pre>
+  </div>
+</section>
+
+<!-- ARRAY & FOREACH -->
+<section class="cat-php" id="array">
+  <h2>📦 Array e foreach</h2>
+  <div class="body">
+    <pre><code><span class="cmt">// ── Creare e riempire array ──</span>
+<span class="var">$frutti</span> = [];                  <span class="cmt">// array vuoto</span>
+<span class="var">$frutti</span>[] = <span class="str">"mela"</span>;           <span class="cmt">// aggiunge in fondo</span>
+<span class="var">$frutti</span>[] = <span class="str">"banana"</span>;
+<span class="fn">count</span>(<span class="var">$frutti</span>);               <span class="cmt">// → 2 (numero elementi)</span>
+
+<span class="cmt">// ── Array associativo ──</span>
+<span class="var">$utente</span> = [<span class="str">"nome"</span> => <span class="str">"Mario"</span>, <span class="str">"eta"</span> => <span class="num">30</span>];
+<span class="fn">echo</span> <span class="var">$utente</span>[<span class="str">"nome"</span>];          <span class="cmt">// → Mario</span>
+
+<span class="cmt">// ── foreach su array semplice ──</span>
+<span class="kw">foreach</span> (<span class="var">$frutti</span> <span class="kw">as</span> <span class="var">$frutto</span>) {
+    <span class="fn">echo</span> <span class="var">$frutto</span> . <span class="str">"&lt;br&gt;"</span>;
+}
+
+<span class="cmt">// ── foreach su array di array (tipico da DB) ──</span>
+<span class="kw">foreach</span> (<span class="var">$premium</span> <span class="kw">as</span> <span class="var">$utente</span>) {
+    <span class="fn">echo</span> <span class="var">$utente</span>[<span class="str">"nome"</span>] . <span class="str">" - "</span> . <span class="var">$utente</span>[<span class="str">"email"</span>] . <span class="str">"&lt;br&gt;"</span>;
+}
+
+<span class="cmt">// ── Raccogliere righe DB in array (schema tipico verifica) ──</span>
+<span class="var">$premium</span>  = [];
+<span class="var">$standard</span> = [];
+<span class="var">$base</span>     = [];
+
+<span class="kw">while</span> (<span class="var">$row</span> = <span class="var">$rs</span>-><span class="fn">fetch_assoc</span>()) {
+    <span class="kw">if</span>     (<span class="var">$row</span>[<span class="str">"tipo"</span>] == <span class="str">"premium"</span>)  <span class="var">$premium</span>[]  = <span class="var">$row</span>;
+    <span class="kw">elseif</span> (<span class="var">$row</span>[<span class="str">"tipo"</span>] == <span class="str">"standard"</span>) <span class="var">$standard</span>[] = <span class="var">$row</span>;
+    <span class="kw">else</span>                                  <span class="var">$base</span>[]     = <span class="var">$row</span>;
+}</code></pre>
+  </div>
+</section>
+
+<!-- OPERATORE TERNARIO -->
+<section class="cat-php" id="ternario">
+  <h2>⚡ Operatore Ternario e ucfirst/number_format</h2>
+  <div class="body">
+    <div class="note">Il ternario è un <code>if/else</code> in una riga: <code>condizione ? se_vero : se_falso</code></div>
+    <pre><code><span class="cmt">// if/else classico:</span>
+<span class="kw">if</span> (<span class="var">$attivo</span> == <span class="num">1</span>) { <span class="var">$testo</span> = <span class="str">"Attivo"</span>;   }
+<span class="kw">else</span>             { <span class="var">$testo</span> = <span class="str">"Inattivo"</span>; }
+
+<span class="cmt">// Stessa cosa con l'operatore ternario:</span>
+<span class="var">$testo</span> = (<span class="var">$attivo</span> == <span class="num">1</span>) ? <span class="str">"Attivo"</span> : <span class="str">"Inattivo"</span>;
+
+<span class="cmt">// Ternario direttamente nell'echo:</span>
+<span class="fn">echo</span> <span class="var">$row</span>[<span class="str">"download_offline"</span>] ? <span class="str">"✅ Sì"</span> : <span class="str">"❌ No"</span>;
+
+<span class="cmt">// ── Funzioni di formattazione utili ──</span>
+<span class="fn">ucfirst</span>(<span class="str">"premium"</span>);            <span class="cmt">// → "Premium" (prima lettera maiuscola)</span>
+<span class="fn">strtoupper</span>(<span class="str">"ciao"</span>);           <span class="cmt">// → "CIAO"</span>
+<span class="fn">strtolower</span>(<span class="str">"CIAO"</span>);           <span class="cmt">// → "ciao"</span>
+<span class="fn">number_format</span>(<span class="num">19.9</span>, <span class="num">2</span>);       <span class="cmt">// → "19.90" (2 decimali)</span>
+<span class="fn">date</span>(<span class="str">"d/m/Y"</span>);                 <span class="cmt">// → data odierna es. "02/05/2026"</span>
+<span class="fn">strlen</span>(<span class="str">"ciao"</span>);               <span class="cmt">// → 4 (lunghezza stringa)</span></code></pre>
+  </div>
+</section>
+
+<!-- SICUREZZA -->
+<section class="cat-tip" id="sicurezza">
+  <h2>🛡 Sicurezza base — intval e htmlspecialchars</h2>
+  <div class="body">
+    <div class="warn">⚠ In verifica usa sempre questi due quando leggi dati dall'utente!</div>
+    <pre><code><span class="cmt">// intval(): converte in intero → protegge da SQL Injection base
+// "5; DROP TABLE utenti" → intval() → 5 (il resto viene ignorato)</span>
+<span class="var">$id</span> = <span class="fn">intval</span>(<span class="var">$_GET</span>[<span class="str">"id"</span>]);
+
+<span class="cmt">// htmlspecialchars(): converte caratteri HTML speciali in entità
+// Evita XSS (Cross-Site Scripting)
+// &lt;script&gt;alert('hack')&lt;/script&gt; → diventa testo innocuo</span>
+<span class="var">$nome</span> = <span class="fn">htmlspecialchars</span>(<span class="var">$_POST</span>[<span class="str">"nome"</span>]);
+
+<span class="cmt">// Uso tipico: id da URL usato in query</span>
+<span class="var">$id</span>  = <span class="fn">intval</span>(<span class="var">$_GET</span>[<span class="str">"id"</span>]);
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT * FROM</span> utenti <span class="sql">WHERE</span> id = $id"</span>;</code></pre>
+  </div>
+</section>
+
+<!-- REDIRECT -->
+<section class="cat-tip" id="redirect">
+  <h2>🔀 Redirect — header()</h2>
+  <div class="body">
+    <div class="note"><code>header()</code> deve essere chiamata PRIMA di qualsiasi output HTML, altrimenti dà errore.</div>
+    <pre><code><span class="cmt">// Reindirizza a un'altra pagina
+// ⚠ DEVE essere prima di qualsiasi echo o HTML</span>
+<span class="fn">header</span>(<span class="str">"Location: index.php"</span>);
+<span class="kw">exit</span>;   <span class="cmt">// ferma lo script dopo il redirect — OBBLIGATORIO!</span>
+
+<span class="cmt">// Redirect con parametro GET:</span>
+<span class="fn">header</span>(<span class="str">"Location: dettaglio.php?id="</span> . <span class="var">$id</span>);
+<span class="kw">exit</span>;
+
+<span class="cmt">// Schema tipico: se manca il parametro → torna alla home</span>
+<span class="kw">if</span> (!<span class="fn">isset</span>(<span class="var">$_GET</span>[<span class="str">"id"</span>])) {
+    <span class="fn">header</span>(<span class="str">"Location: index.php"</span>);
+    <span class="kw">exit</span>;
+}</code></pre>
+  </div>
+</section>
+
+<!-- BOOLEANI -->
+<section class="cat-php" id="boolean">
+  <h2>✅ Booleani dal DB — come gestirli</h2>
+  <div class="body">
+    <div class="note">MySQL salva i BOOLEAN come <code>1</code> (TRUE) o <code>0</code> (FALSE). PHP li riceve come stringa "1" o "0".</div>
+    <pre><code><span class="cmt">// ── Metodo 1: confronto diretto ──</span>
+<span class="kw">if</span> (<span class="var">$row</span>[<span class="str">"attivo"</span>] == <span class="num">1</span>) {
+    <span class="fn">echo</span> <span class="str">'&lt;span class="badge bg-success"&gt;Attivo&lt;/span&gt;'</span>;
+} <span class="kw">else</span> {
+    <span class="fn">echo</span> <span class="str">'&lt;span class="badge bg-danger"&gt;Inattivo&lt;/span&gt;'</span>;
+}
+
+<span class="cmt">// ── Metodo 2: operatore ternario (più compatto) ──</span>
+<span class="fn">echo</span> <span class="var">$row</span>[<span class="str">"download_offline"</span>] ? <span class="str">"✅ Sì"</span> : <span class="str">"❌ No"</span>;
+<span class="fn">echo</span> <span class="var">$row</span>[<span class="str">"pubblicita"</span>]       ? <span class="str">"❌ Presente"</span> : <span class="str">"✅ Assente"</span>;
+
+<span class="cmt">// ── In SQL: filtrare per booleano ──</span>
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT * FROM</span> utenti <span class="sql">WHERE</span> attivo = TRUE"</span>;
+<span class="var">$sql</span> = <span class="str">"<span class="sql">SELECT * FROM</span> prodotti <span class="sql">WHERE</span> disponibile = 1"</span>;</code></pre>
+  </div>
+</section>
+
+
+<!-- BOOTSTRAP -->
+<section class="full cat-boot" id="bootstrap">
+  <h2>🎨 Bootstrap — Classi più usate in verifica</h2>
+  <div class="body">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+
+      <div>
+        <p style="color:var(--blue); font-weight:700; margin-bottom:6px;">📐 Layout</p>
+        <pre style="margin:0;"><code><span class="cmt">container        → centra il contenuto
+container-fluid  → larghezza piena
+row              → riga della griglia
+col-4            → colonna 1/3
+col-6            → colonna 1/2
+col-12           → colonna intera
+text-center      → testo centrato
+text-end         → testo a destra
+d-flex           → flexbox
+justify-content-between → spazio tra
+mt-3  mb-3       → margin top/bottom (0-5)
+pt-3  pb-3       → padding top/bottom
+p-3              → padding tutto intorno</span></code></pre>
+      </div>
+
+      <div>
+        <p style="color:var(--blue); font-weight:700; margin-bottom:6px;">🔲 Componenti</p>
+        <pre style="margin:0;"><code><span class="cmt">card             → riquadro card
+card-header      → intestazione card
+card-body        → corpo card
+navbar           → barra navigazione
+navbar-dark bg-dark → navbar scura
+navbar-brand     → logo/titolo navbar
+table            → tabella
+table-sm         → tabella compatta
+table-bordered   → tabella con bordi
+table-striped    → righe alternate
+badge            → piccolo badge
+btn              → pulsante base</span></code></pre>
+      </div>
+
+      <div>
+        <p style="color:var(--blue); font-weight:700; margin-bottom:6px;">🎨 Colori e Bottoni</p>
+        <pre style="margin:0;"><code><span class="cmt">btn btn-dark     → pulsante scuro
+btn btn-primary  → blu
+btn btn-secondary → grigio
+btn btn-success  → verde
+btn btn-danger   → rosso
+btn btn-outline-light → bordo chiaro
+btn btn-lg       → pulsante grande
+btn btn-sm       → pulsante piccolo
+
+bg-dark / bg-primary / bg-success
+bg-danger / bg-secondary
+
+badge bg-success → badge verde
+badge bg-danger  → badge rosso
+badge bg-dark    → badge scuro
+
+text-white  text-muted  text-success</span></code></pre>
+      </div>
+
+    </div>
+
+    <p style="color:var(--blue); font-weight:700; margin: 14px 0 6px;">📋 Struttura card completa</p>
+    <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"card mb-3"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"card-header bg-dark text-white"</span><span class="tag">&gt;</span>Titolo Card<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"card-body"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"row"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"col-6"</span><span class="tag">&gt;</span>Colonna sinistra<span class="tag">&lt;/div&gt;</span>
+            <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"col-6"</span><span class="tag">&gt;</span>Colonna destra<span class="tag">&lt;/div&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="cmt">&lt;!-- Navbar completa --&gt;</span>
+<span class="tag">&lt;nav</span> <span class="attr">class</span>=<span class="str">"navbar navbar-dark bg-dark"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"container"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"navbar-brand"</span><span class="tag">&gt;</span>📺 Logo<span class="tag">&lt;/span&gt;</span>
+        <span class="cmt">&lt;!-- opzionale: bottone a destra --&gt;</span>
+        <span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="str">"index.php"</span> <span class="attr">method</span>=<span class="str">"POST"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"hidden"</span> <span class="attr">name</span>=<span class="str">"abbonati"</span> <span class="attr">value</span>=<span class="str">"1"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="str">"btn btn-outline-light btn-sm"</span><span class="tag">&gt;</span>← Lista<span class="tag">&lt;/button&gt;</span>
+        <span class="tag">&lt;/form&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/nav&gt;</span></code></pre>
+  </div>
+</section>
+
+<!-- SCHEMA COMPLETO VERIFICA -->
+<section class="full cat-php" id="schema">
+  <h2>🗺 Schema completo — Flusso tipico della verifica</h2>
+  <div class="body">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div>
+        <p style="color:var(--accent); font-weight:700; margin-bottom:6px;">📄 index.php</p>
+        <pre><code><span class="kw">&lt;?php</span>
+<span class="kw">if</span> (!<span class="fn">isset</span>(<span class="var">$_POST</span>[<span class="str">"mostra"</span>])) {
+    <span class="cmt">// ── HOME PAGE ──</span>
+    <span class="fn">echo</span> <span class="str">'&lt;form action="" method="POST"&gt;
+        &lt;button name="mostra" value="1"&gt;
+            Mostra dati
+        &lt;/button&gt;
+    &lt;/form&gt;'</span>;
+} <span class="kw">else</span> {
+    <span class="cmt">// ── LISTA DATI ──</span>
+    <span class="var">$con</span> = <span class="fn">mysqli_connect</span>(...);
+    <span class="kw">if</span> (<span class="var">$con</span>->connect_errno)
+        <span class="fn">die</span>(<span class="var">$con</span>->connect_error);
+
+    <span class="var">$sql</span> = <span class="str">"SELECT ... FROM ... JOIN ..."</span>;
+    <span class="var">$rs</span>  = <span class="var">$con</span>-><span class="fn">query</span>(<span class="var">$sql</span>);
+
+    <span class="var">$gruppoA</span> = [];
+    <span class="var">$gruppoB</span> = [];
+    <span class="kw">while</span> (<span class="var">$row</span> = <span class="var">$rs</span>-><span class="fn">fetch_assoc</span>()) {
+        <span class="kw">if</span> (<span class="var">$row</span>[<span class="str">"tipo"</span>] == <span class="str">"A"</span>) <span class="var">$gruppoA</span>[] = <span class="var">$row</span>;
+        <span class="kw">else</span>                   <span class="var">$gruppoB</span>[] = <span class="var">$row</span>;
+    }
+
+    <span class="fn">echo</span> <span class="str">'&lt;div class="row"&gt;'</span>;
+    <span class="fn">echo</span> <span class="str">'&lt;div class="col-6"&gt;'</span>;
+    <span class="kw">foreach</span> (<span class="var">$gruppoA</span> <span class="kw">as</span> <span class="var">$u</span>) {
+        <span class="fn">echo</span> <span class="str">'&lt;a href="dettaglio.php?id='
+             . $u["id"] . '"&gt;'</span>;
+        <span class="fn">echo</span> <span class="str">'&lt;div class="card mb-2 p-2"&gt;'</span>;
+        <span class="fn">echo</span> <span class="var">$u</span>[<span class="str">"nome"</span>];
+        <span class="fn">echo</span> <span class="str">'&lt;/div&gt;&lt;/a&gt;'</span>;
+    }
+    <span class="fn">echo</span> <span class="str">'&lt;/div&gt;&lt;/div&gt;'</span>;
+    <span class="fn">echo</span> <span class="str">'&lt;a href="index.php"&gt;← Home&lt;/a&gt;'</span>;
+    <span class="var">$con</span>-><span class="fn">close</span>();
+}
+<span class="kw">?&gt;</span></code></pre>
+      </div>
+
+      <div>
+        <p style="color:var(--accent); font-weight:700; margin-bottom:6px;">📄 dettaglio.php</p>
+        <pre><code><span class="kw">&lt;?php</span>
+<span class="cmt">// 1. Controllo che l'id ci sia</span>
+<span class="kw">if</span> (!<span class="fn">isset</span>(<span class="var">$_GET</span>[<span class="str">"id"</span>])) {
+    <span class="fn">header</span>(<span class="str">"Location: index.php"</span>);
+    <span class="kw">exit</span>;
+}
+<span class="var">$id</span> = <span class="fn">intval</span>(<span class="var">$_GET</span>[<span class="str">"id"</span>]);
+
+<span class="cmt">// 2. Connessione</span>
+<span class="var">$con</span> = <span class="fn">mysqli_connect</span>(...);
+<span class="kw">if</span> (<span class="var">$con</span>->connect_errno) <span class="fn">die</span>(...);
+
+<span class="cmt">// 3. Query JOIN</span>
+<span class="var">$sql</span> = <span class="str">"SELECT u.*, a.tipo, a.costo
+        FROM utenti u
+        JOIN abbonamenti a
+          ON u.id_abbonamento = a.id
+        WHERE u.id = $id"</span>;
+<span class="var">$rs</span>  = <span class="var">$con</span>-><span class="fn">query</span>(<span class="var">$sql</span>);
+<span class="var">$row</span> = <span class="var">$rs</span>-><span class="fn">fetch_assoc</span>();
+<span class="kw">if</span> (!<span class="var">$row</span>) { <span class="fn">header</span>(<span class="str">"Location: index.php"</span>); <span class="kw">exit</span>; }
+<span class="kw">?&gt;</span>
+
+<span class="cmt">&lt;!-- 4. Mostra i dati --&gt;</span>
+<span class="kw">&lt;?=</span> <span class="var">$row</span>[<span class="str">"nome"</span>] <span class="kw">?&gt;</span>
+<span class="kw">&lt;?=</span> <span class="var">$row</span>[<span class="str">"tipo"</span>] <span class="kw">?&gt;</span>
+
+<span class="cmt">&lt;!-- 5. Torna alla lista (POST) --&gt;</span>
+<span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="str">"index.php"</span> <span class="attr">method</span>=<span class="str">"POST"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"hidden"</span> <span class="attr">name</span>=<span class="str">"mostra"</span> <span class="attr">value</span>=<span class="str">"1"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button&gt;</span>← Lista<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
+
+<span class="kw">&lt;?php</span> <span class="var">$con</span>-><span class="fn">close</span>(); <span class="kw">?&gt;</span></code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer style="text-align:center; padding:20px; color:var(--muted); font-size:12px; border-top:1px solid var(--border);">
+  📋 Cheatsheet PHP+SQL — 4EINF — Verifica TPSIT &nbsp;·&nbsp; Ctrl+F per cercare &nbsp;·&nbsp; Ctrl+P per stampare
+</footer>
+
+</body>
+</html>

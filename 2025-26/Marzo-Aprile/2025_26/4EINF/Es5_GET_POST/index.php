@@ -12,7 +12,7 @@ $risultatoPost = "";
 if (isset($_POST["nome"]) && isset($_POST["eta"])) {
     $nome = $_POST["nome"];
     $eta = $_POST["eta"];
-    $risultatoPost = "GET -> CIAO $nome, hai $eta anni";
+    $risultatoPost = "POST -> CIAO $nome, hai $eta anni";
 
 
 }

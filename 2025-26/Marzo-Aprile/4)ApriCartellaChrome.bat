@@ -8,3 +8,6 @@ if not exist "C:\xampp\htdocs\2025_26\4EINF" (
 
 :: Avvia Chrome sull'indirizzo localhost:8080 puntando alla tua sottocartella
 start chrome "http://localhost:8080/2025_26/4EINF/"
+start chrome "http://localhost:8080/phpmyadmin/"
+
+
