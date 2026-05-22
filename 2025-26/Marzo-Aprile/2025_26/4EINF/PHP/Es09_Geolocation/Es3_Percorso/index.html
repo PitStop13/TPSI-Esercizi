@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <title>Percorso</title>
+ 
+ 
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyD3sbpfCzqO7Ezn2lvNszqrzi3rxlomvn8&sensor=false&language=it"></script>
+  <script type="text/javascript"  src="index.js"> </script>
+ 
+ 
+  <style type="text/css">
+    h1{
+      text-align:center;
+      font-size:25pt;
+      font-weight:bold;
+    }
+    #wrapper1{
+      width:800px;
+      margin:10px auto;
+    }
+    #wrapper2{
+      width:1160px;
+      margin:10px auto;
+      display:flex;
+      flex-wrap:wrap;
+    }
+ 
+    #imgBox{
+      width:800px;
+      height:600px;
+      margin:15px;
+    }
+    #panel{
+      width:300px;
+      height:600px;
+      margin:15px;
+      overflow:auto;
+    }
+  </style>
+</head>
+ 
+ 
+<!-- ----------------------------  BODY  ----------------------------- -->
+<body>
+<h1> Visualizza Percorso </h1>
+<div id="wrapper1">
+  <label> partenza <input type="text" value="cuneo"> </label> &nbsp;&nbsp;
+  <label> arrivo <input type="text" value="torino"> </label>
+  <input type="button" value="visualizza" onclick="visualizza()">
+</div>
+<div id="wrapper2">
+  <div id="imgBox">  </div>
+  <div id="panel">  </div>
+</div>
+</body>
+</html>
+

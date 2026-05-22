@@ -1,5 +1,5 @@
 @echo off
-if not exist "C:\xampp\htdocs" (
+if not exist "C:\xampp\htdocs\2025_26\4EINF" (
     echo ERRORE: Cartella XAMPP htdocs non trovata!
     pause
     exit /b 1

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="it">
+<head>  
+    <meta charset="UTF-8">
+    <title>geolocation</title>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3sbpfCzqO7Ezn2lvNszqrzi3rxlomvn8&loading=async" async defer></script>
+    
+    <link rel="stylesheet" href="../map-icons/dist/css/map-icons.css" />
+    <script type="text/javascript" src="../map-icons/dist/js/map-icons.js"></script>
+    
+    <script type="text/javascript" src="script.js"></script>
+
+    <style type="text/css">
+        h1{
+            text-align:center;
+            font-size:25pt;
+            font-weight:bold;
+        }
+        #imgBox{
+            width:800px;
+            height:600px;
+            margin:10px auto;      
+        }
+       
+        #info { padding:0; text-align:left; }
+        #info p { padding:0; margin:0}
+        #info p:last-of-type {margin-bottom:10px }
+       
+        .map-icon-label .map-icon {
+            font-size: 20px;   /* default 24px  */
+            color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <h1> API v3 di google maps </h1>
+    <div id="imgBox"></div>  
+</body>
+</html>
