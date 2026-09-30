@@ -1,0 +1,9 @@
+body { font-family: Arial, sans-serif; max-width: 520px; margin: 40px auto; }
+h1 { color: #2c3e50; }
+ul { list-style: none; padding: 0; }
+li { padding: 8px 12px; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; }
+input[type="text"] { padding: 8px; width: 70%; font-size: 1em; margin-bottom: 10px; }
+.btn-aggiungi { padding: 8px 14px; background: #2c3e50; color: #fff; border: none; cursor: pointer; }
+.btn-modifica { background: #f39c12; color: #fff; border: none; padding: 4px 10px; cursor: pointer; margin-left: auto; margin-right: 6px; }
+.btn-elimina { background: #e74c3c; color: #fff; border: none; padding: 4px 10px; cursor: pointer; }
+

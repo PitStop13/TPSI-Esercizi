@@ -1,0 +1,11 @@
+body  { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; }
+h1   { color: #27ae60; }
+ul   { list-style: none; padding: 0; }
+li   { display: flex; justify-content: space-between; align-items: center;
+       padding: 8px 12px; border-bottom: 1px solid #ddd; }
+input[type="text"] { padding: 8px; width: 70%; font-size: 1em; }
+.btn-aggiungi { padding: 8px 14px; background: #27ae60; color: #fff;
+                border: none; cursor: pointer; font-size: 1em; }
+.btn-elimina  { background: #e74c3c; color: #fff; border: none;
+                padding: 4px 10px; cursor: pointer; }
+

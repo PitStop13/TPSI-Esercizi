@@ -1,0 +1,167 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body  { 
+    font-family: Arial, sans-serif; 
+    max-width: 700px; 
+    margin: 40px auto; 
+    padding: 0 20px;
+}
+
+h1   { 
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+#formAggiungi {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#inputFilm {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    font-size: 1em;
+}
+
+#inputCerca {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+ul   { 
+    list-style: none; 
+    padding: 0; 
+}
+
+li   { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 12px 0; 
+    border-bottom: 1px solid #ecf0f1;
+}
+
+li span {
+    flex: 1;
+    font-size: 1em;
+    color: #2c3e50;
+}
+
+.btn-aggiungi { 
+    padding: 10px 20px; 
+    background: #34495e; 
+    color: #fff;
+    border: none; 
+    cursor: pointer; 
+    font-size: 1em;
+    border-radius: 4px;
+}
+
+.btn-aggiungi:hover {
+    background: #2c3e50;
+}
+
+.btn-modifica {
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.btn-modifica:hover {
+    background: #e67e22;
+}
+
+.btn-elimina  { 
+    background: #e74c3c; 
+    color: #fff; 
+    border: none;
+    padding: 6px 12px; 
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-elimina:hover {
+    background: #c0392b;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#inputNuovoTitolo {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-ok {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-ok:hover {
+    background: #2980b9;
+}
+
+.btn-annulla {
+    background: #95a5a6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-annulla:hover {
+    background: #7f8c8d;
+}
+

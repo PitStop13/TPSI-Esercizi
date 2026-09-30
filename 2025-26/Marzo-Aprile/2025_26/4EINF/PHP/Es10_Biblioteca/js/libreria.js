@@ -9,6 +9,7 @@ function inviaRichiesta(method, url, parameters={}) {
 		data: parameters,
 		type: method,
 		dataType:"JSON",
+		cache: false,       // disabilita la cache: forza una nuova richiesta al server ogni volta
 		timeout: 5000,      // default
 	});
 }

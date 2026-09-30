@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Film da vedere – MVC + AJAX</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/libreria.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+
+    <h1>Film da vedere</h1>
+
+    <form id="formAggiungi">
+        <input type="text" id="inputFilm" placeholder="Es: Interstellar" required>
+        <button type="submit" class="btn-aggiungi">Aggiungi</button>
+    </form>
+    <input type="text" id="ricercaFilm" placeholder="Cerca film...">
+    
+
+    <!-- La lista viene riempita da index.js via AJAX -->
+    <ul id="listaFilm"></ul>
+</body>
+        
+</html>

@@ -24,10 +24,18 @@ INSERT INTO autori (nome, cognome) VALUES
 ('Alessandro', 'Manzoni'),
 ('Elsa', 'Morante'),
 ('Primo', 'Levi'),
-('Italo', 'Calvino');
+('Italo', 'Calvino'),
+('Dante', 'Alighieri'),
+('Giovanni', 'Boccaccio'),
+('Francesco', 'Petrarca'),
+('Gabriele', 'DAnnunzio');
 
 INSERT INTO libri (titolo, anno_pubblicazione, autore_id) VALUES
 ('I Promessi Sposi', 1840, 1),
 ('La Storia', 1974, 2),
 ('Se questo e un uomo', 1947, 3),
-('Il barone rampante', 1957, 4);
+('Il barone rampante', 1957, 4),
+('La Divina Commedia', 1320, 5),
+('Decameron', 1353, 6),
+('Africa', 1353, 7),
+('Il Fuoco', 1914, 8);

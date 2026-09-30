@@ -13,7 +13,6 @@
         .navbar-custom {
             background-color: #3b5998;
         }
-
         .box-counter {
             background-color: #e0f2f1;
             color: #004d40;
@@ -33,17 +32,71 @@
 
     <main class="container-fluid px-5">
 
+        <!-- CONTATORE -->
         <div class="box-counter p-3 rounded mb-4">
             <p class="m-0 fw-semibold">Libri presenti: <span id="lblContatore">-</span></p>
         </div>
 
         <div class="row mb-4">
-            <div class="col-12">
+
+            <!-- SEZIONE AGGIUNGI LIBRO -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header fw-semibold">Aggiungi libro</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Titolo</label>
+                            <input type="text" id="txtTitolo" class="form-control" placeholder="Titolo del libro">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Anno pubblicazione</label>
+                            <input type="number" id="txtAnno" class="form-control" placeholder="es. 1984">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Autore</label>
+                            <!-- Popolato via JS con i dati dal DB -->
+                            <select id="selAutore" class="form-select"></select>
+                        </div>
+                        <button class="btn btn-primary" onclick="inserisciLibro()">Salva libro</button>
+                    </div>
+                </div>
             </div>
+
+            <!-- SEZIONE AGGIUNGI AUTORE -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header fw-semibold">Aggiungi autore</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Nome</label>
+                            <input type="text" id="txtNome" class="form-control" placeholder="Nome dell'autore">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Cognome</label>
+                            <input type="text" id="txtCognome" class="form-control" placeholder="Cognome dell'autore">
+                        </div>
+                        <button class="btn btn-primary" onclick="inserisciAutore()">Salva autore</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
+        <!-- TABELLA LIBRI (tutti, nessun filtro) -->
         <div class="row">
             <div class="col-12">
+                <table class="table table-striped table-bordered" id="tblLibri">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Titolo</th>
+                            <th>Autore</th>
+                            <th>Anno pubblicazione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Righe inserite da caricaLibri() in index.js -->
+                    </tbody>
+                </table>
             </div>
         </div>
 
