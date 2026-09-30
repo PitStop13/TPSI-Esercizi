@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f5f7;
+    color: #1f2937;
+}
+
+.page {
+    max-width: 980px;
+    margin: 24px auto;
+    padding: 0 14px 24px;
+}
+
+/* Hero */
+.hero {
+    background: #ffffff;
+    border: 1px solid #d9e1ea;
+    border-left: 6px solid #e85d04;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+}
+
+.hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-logo {
+    font-size: 36px;
+    line-height: 1;
+}
+
+.hero h1 {
+    margin: 0 0 4px;
+    font-size: 26px;
+    color: #111827;
+}
+
+.hero p {
+    margin: 0;
+    color: #4b5563;
+}
+
+/* Box section */
+.box {
+    background: #ffffff;
+    border: 1px solid #d9e1ea;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.box h3 {
+    margin: 0 0 10px;
+    color: #111827;
+}
+
+/* Forms */
+.grid-form,
+.filtro-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #c6d0db;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #111827;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #f9a846;
+    outline-offset: 1px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn-aggiungi {
+    background: #e85d04;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-aggiungi:hover {
+    background: #c44d03;
+}
+
+/* Cards */
+.cards-gare {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px;
+}
+
+.gara-card {
+    background: #ffffff;
+    border: 1px solid #d9e1ea;
+    border-radius: 8px;
+    padding: 10px;
+    border-top: 3px solid #e85d04;
+}
+
+.gara-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.gara-titolo {
+    font-weight: bold;
+    font-size: 15px;
+    color: #111827;
+}
+
+.badge-stato {
+    border-radius: 999px;
+    padding: 3px 9px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.badge-programmata {
+    background: #e5eef9;
+    color: #1e3a8a;
+}
+
+.badge-finale {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.gara-body p {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #374151;
+}
+
+.gara-body strong {
+    color: #111827;
+}
+
+.gara-azioni {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn-posizione {
+    flex: 1;
+    background: #e85d04;
+    border: none;
+    color: #fff;
+    font-size: 13px;
+    padding: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-posizione:hover {
+    background: #c44d03;
+}
+
+.btn-elimina {
+    flex: 1;
+    background: #6b7280;
+    border: none;
+    color: #fff;
+    font-size: 13px;
+    padding: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-elimina:hover {
+    background: #4b5563;
+}
+
+.empty-box {
+    background: #ffffff;
+    border: 1px dashed #c6d0db;
+    border-radius: 8px;
+    padding: 18px;
+    color: #6b7280;
+    text-align: center;
+}
+

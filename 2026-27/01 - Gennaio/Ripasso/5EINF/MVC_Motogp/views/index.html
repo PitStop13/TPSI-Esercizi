@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoGP - Compito di recupero del debito</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/libreria.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+<div class="page">
+
+    <header class="hero">
+        <div class="hero-inner">
+            <span class="hero-logo">🏍️</span>
+            <div>
+                <h1>MotoGP - Compito di COGNOME NOME</h1>
+                <p>Gestione gare con MVC + AJAX</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="box">
+        <h3>Nuova gara</h3>
+        <form id="formAggiungi" class="grid-form">
+            <input type="number" id="inputStagione" min="2020" placeholder="Stagione" required>
+            <input type="number" id="inputRound"    min="1"    placeholder="Round"    required>
+            <input type="datetime-local" id="inputDataOra" required>
+            <select id="selCircuito" required></select>
+            <select id="selPilota"   required></select>
+            <button type="submit" class="btn-aggiungi">Inserisci gara</button>
+        </form>
+    </section>
+
+    <section class="box">
+        <h3>Ricerca</h3>
+        <div class="filtro-box">
+            <input type="number" id="inputFiltroStagione" min="2020" placeholder="Stagione">
+            <input type="text"   id="inputRicerca" placeholder="Pilota, team o circuito...">
+            <button id="btnReset" type="button">Azzera</button>
+        </div>
+    </section>
+
+    <section class="box">
+        <h3>Gare</h3>
+        <div id="tbodyGare" class="cards-gare"></div>
+    </section>
+
+</div>
+</body>
+</html>
+
