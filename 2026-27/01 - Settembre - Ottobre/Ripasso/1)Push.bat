@@ -1,7 +1,7 @@
 @echo off
 title Push a XAMPP
 
-set "sorgente=C:\Users\pietr\Desktop\Scuola\TPSI\2026-27\01 - Gennaio\Ripasso\5EINF"
+set "sorgente=C:\Users\pietr\Desktop\Scuola\TPSI\2026-27\01 - Settembre - Ottobre\Ripasso\5EINF"
 set "xampp_dest=C:\xampp\htdocs\2026_27\5EINF"
 
 if not exist "%sorgente%" (
