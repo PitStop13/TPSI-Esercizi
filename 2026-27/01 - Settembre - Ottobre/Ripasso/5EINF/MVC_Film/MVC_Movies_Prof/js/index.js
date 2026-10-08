@@ -1,6 +1,6 @@
 "use strict";
 
-const URL_BASE = "http://localhost/2026_27/5EINF/MVC_Movies_Prof/index.php";
+const URL_BASE = "http://localhost/2026_27/5EINF/MVC_Film/MVC_Movies_Prof/index.php";
 
 $(document).ready(function () {
 

@@ -4,7 +4,7 @@
 // COSTANTE URL_BASE
 // Punta all'endpoint del Front Controller (index.php) che gestisce le richieste.
 // =============================================================================
-const URL_BASE = "http://localhost/2026_27/5EINF/MVC_Motogp/index.php";
+const URL_BASE = "http://localhost/2026_27/5EINF/OLIVERO_spotify/index.php";
 
 // =============================================================================
 // EVENTO READY: viene eseguito quando il DOM della pagina Ã¨ completamente caricato.
@@ -170,7 +170,7 @@ $(document).ready(function () {
 
                 // Intestazione della card: Round, stagione e stato
                 let head = $("<div>").addClass("gara-head").appendTo(card);
-                $("<div>").addClass("gara-titolo").text("Round " + gara.round + " â€” " + gara.stagione).appendTo(head);
+                $("<div>").addClass("gara-titolo").text("Round " + gara.round + " - " + gara.stagione).appendTo(head);
                 $("<span>").addClass("badge-stato " + badgeClass).text(gara.stato).appendTo(head);
 
                 // Corpo della card con tutte le informazioni: data formattata, circuito, pilota, team, posizione
