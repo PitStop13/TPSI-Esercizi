@@ -1,0 +1,16 @@
+{
+  "name": "es01_serverbase",
+  "version": "1.0.0",
+  "description": "Server base per l'esempio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "colors": "^1.4.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "es00_sempliceserver",
+  "version": "1.0.0",
+  "description": "Primo esempio di server in node",
+  "author": "Pietro O",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
