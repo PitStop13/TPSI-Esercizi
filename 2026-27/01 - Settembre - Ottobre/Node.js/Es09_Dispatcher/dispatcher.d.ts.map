@@ -1,1 +1,1 @@
-{"version":3,"file":"dispatcher.d.ts","sourceRoot":"","sources":["dispatcher.ts"],"names":[],"mappings":""}
+{"version":3,"file":"dispatcher.d.ts","sourceRoot":"","sources":["dispatcher.ts"],"names":[],"mappings":"AAqCA,cAAM,UAAU;IACZ,MAAM,EAAE,MAAM,CAAS;IACvB,SAAS,EAAE,GAAG,CAMZ;;IAKK,WAAW,CAAC,MAAM,EAAE,MAAM,EAAE,OAAO,EAAE,MAAM,EAAE,QAAQ,EAAE,GAAG;IAU1D,QAAQ,CAAC,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG;IA6BlC,OAAO,CAAC,aAAa;CA6BxB;;AAED,wBAAgC"}
